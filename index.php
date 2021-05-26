@@ -1,7 +1,7 @@
 
 <html lang="en">
 <?php
-include 'inc/header.php';
+include 'View/inc/header.php';
 ?>
 
 	<body>
@@ -213,7 +213,7 @@ include 'inc/header.php';
 			</div>
 		</section>
     <?php
-    include 'inc/footer.php';
+    include 'View/inc/footer.php';
     ?>
 
     <!--preloader-->

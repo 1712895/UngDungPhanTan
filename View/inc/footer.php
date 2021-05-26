@@ -5,7 +5,7 @@
         <div class="row">
             <div class="footer-wrapper">
                 <div class="col-md-3 col-sm-3">
-                    <a href=""><img src="images/logo-black.png" alt="" class="footer-logo" /></a>
+                    <a href=""><img src="../../images/logo-black.png" alt="" class="footer-logo" /></a>
                     <ul class="list-inline social-icons">
                         <li><a href="#"><i class="icon ion-social-facebook"></i></a></li>
                         <li><a href="#"><i class="icon ion-social-twitter"></i></a></li>
@@ -61,3 +61,15 @@
         <p>copyright @thunder-team 2016. All rights reserved</p>
     </div>
 </footer>
+<!--preloader-->
+<div id="spinner-wrapper">
+    <div class="spinner"></div>
+</div>
+<!-- Scripts
+================================================= -->
+<script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCTMXfmDn0VlqWIyoOxK8997L-amWbUPiQ&callback=initMap"></script>
+<script src="../js/jquery-3.1.1.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/jquery.sticky-kit.min.js"></script>
+<script src="../js/jquery.scrollbar.min.js"></script>
+<script src="../js/script.js"></script>
