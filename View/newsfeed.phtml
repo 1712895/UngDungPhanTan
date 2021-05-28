@@ -1,8 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
 <title>Home | Check what new information today</title>
+
 <?php
-include 'inc/header.php';
+
+require_once ('inc/header.phtml');
+
 ?>
 
 <body>
@@ -20,7 +23,7 @@ include 'inc/header.php';
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
-                    <img src="../images/users/user-1.jpg" alt="user" class="profile-photo" />
+                    <img src="images/users/user-1.jpg" alt="user" class="profile-photo" />
                     <h5><a href="timeline.html" class="text-white">Sarah Cruiz</a></h5>
                     <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 1,299 followers</a>
                 </div><!--profile card ends-->
@@ -77,9 +80,14 @@ include 'inc/header.php';
                 ================================================= -->
                 <div class="post-content">
                     <!--<img src="../images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
-                    <h3><a href="#" class="profile-link">Header of something ...</a> </h3>
+                    <h3><a href="#" class="profile-link">  <?php
+                            if (isset($data) && $data != "")
+                            {
+                                echo $data->header;
+                            }
+                            ?>  </a> </h3>
                     <div class="post-container">
-                        <img src="../images/users/user-5.jpg" alt="user" class="profile-photo-md pull-left" />
+                        <img src="images/users/user-5.jpg" alt="user" class="profile-photo-md pull-left" />
                         <div class="post-detail">
                             <div class="user-info">
                                 <h5><a href="timeline.html" class="profile-link">Alexis Clark</a> <span class="following">following</span></h5>
@@ -91,7 +99,12 @@ include 'inc/header.php';
                             </div>
                             <div class="line-divider"></div>
                             <div class="post-text">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
+                                <p><?php
+                                    if (isset($data) && $data != "")
+                                    {
+                                        echo $data->detail;
+                                    }
+                                    ?> <i class="em em-anguished"></i> <i class="em em-anguished"></i> <i class="em em-anguished"></i></p>
                             </div>
 
                         </div>
@@ -321,7 +334,10 @@ include 'inc/header.php';
 <!-- Footer
 ================================================= -->
 <?php
-include 'inc/footer.php';
+
+require_once 'inc/footer.phtml';
+
+
 ?>
 
 
