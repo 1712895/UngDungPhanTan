@@ -18,6 +18,14 @@
       </list>
     </option>
   </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/mongodb/mongodb" />
@@ -35,13 +43,15 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/file cua uyen/DiendanTriThuc" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.path.for.package.tslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.phpOptions" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -68,11 +78,30 @@
       <workItem from="1622038247568" duration="244000" />
       <workItem from="1622180328862" duration="52000" />
       <workItem from="1622189545485" duration="13428000" />
-      <workItem from="1622210211282" duration="6354000" />
+      <workItem from="1622210211282" duration="6770000" />
+      <workItem from="1622607587396" duration="1226000" />
+      <workItem from="1622718043420" duration="711000" />
+      <workItem from="1622869245182" duration="304000" />
+      <workItem from="1624015589172" duration="306000" />
+      <workItem from="1624179043422" duration="102000" />
+      <workItem from="1624552158564" duration="26000" />
+      <workItem from="1624974131682" duration="3175000" />
+      <workItem from="1625063157943" duration="68000" />
+      <workItem from="1625070281222" duration="160000" />
+      <workItem from="1625127740137" duration="8371000" />
+      <workItem from="1625413780408" duration="50000" />
+      <workItem from="1625414585165" duration="22000" />
+      <workItem from="1625977245078" duration="11447000" />
+      <workItem from="1626082022923" duration="1726000" />
+      <workItem from="1626098256518" duration="4109000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

@@ -5,7 +5,7 @@ function connect()
 //require autoload
 /*require_once('../vendor/autoload.php');*/
     define('DRUPAL_ROOT', getcwd());
-    require_once DRUPAL_ROOT . '/vendor/autoload.php';
+    require_once DRUPAL_ROOT . '../vendor/autoload.php';
 
 //$conn = new Client("mongodb+srv://mongo-user:12345678910@cluster0.ibwll.mongodb.net/?ssl=true&authSource=admin&serverSelectionTryOnce=false&serverSelectionTimeoutMS=15000");
 //$db = $conn->test;
