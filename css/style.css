@@ -86,7 +86,7 @@ h1.grey, h2.grey, h3.grey, h4.grey, h5.grey, h6.grey{
 
 .text-red:hover{color: #d6100b;}
 
-.profile-link{font-weight: 600;}
+.profile-link{font-weight: 600;padding: 20px;}
 
 .text-muted{color: #939598;}
 
@@ -830,6 +830,7 @@ ul.online-users li span.online-dot{
 
 .follow-user{
   margin-bottom: 20px;
+
 }
 
 .follow-user div{
@@ -925,6 +926,7 @@ ul.online-users li span.online-dot{
 .post-content .post-container .post-detail .post-text{
   line-height: 24px;
   margin: 0;
+
 }
 
 .post-content .post-container .post-detail .reaction{
@@ -1926,3 +1928,15 @@ ul.contact li i{
   background-color: #fff;
   z-index: 9999999;
 }
+.bts {
+  border: none;
+  background-color: inherit;
+  padding: 14px 28px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+}
+
+.bts:hover {background: #eee;}
+
+.default {color: black;}

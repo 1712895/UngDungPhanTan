@@ -7,9 +7,6 @@ class UserController
     {
         $data = UserModel::listOne();
 
-
-
-
         require("./View/login.phtml");
     }
     public function profile()
