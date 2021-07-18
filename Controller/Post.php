@@ -5,9 +5,13 @@ class PostController
 {
     public function index()
     {
-        $data = PostModel::listAll();
-
+        $dataUser = PostModel::AllQuestion();
         require("./View/newsfeed.phtml");
+    }
+    public function detail()
+    {
+        $data = PostModel::DetailQuestion();
+        require ("./View/newsfeed-detail.phtml");
     }
 
 }

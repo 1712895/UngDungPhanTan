@@ -27,6 +27,24 @@ class PostModel
         $result = $db->Post->find();
         return $result;
     }
+    public static function AllQuestion() {
+        $db = connect();
+        $result = $db->Post->aggregate([
+            ['$lookup' => [
+                'from' => 'User',
+                'localField' => 'id_User',
+                'foreignField' => '_id',
+                'as' => 'Infor_User'
+            ]]
+        ]);
+        return $result;
+    }
+    public static function DetailQuestion()
+    {
+        $db = connect();
+        $result = $db->Post->findOne();
+        return $result;
+    }
 
 }
 

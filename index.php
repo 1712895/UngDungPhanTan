@@ -37,6 +37,10 @@ switch ($action)
         $controller = new UserController();
         $controller->profile();
         break;
+    case "detail":
+        $controller = new PostController();
+        $controller->detail();
+        break;
     default:
         $controller = new PostController();
         $controller->index();
