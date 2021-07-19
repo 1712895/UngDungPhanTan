@@ -42,70 +42,67 @@ require_once ('inc/header.phtml');
                 <div class="create-post">
                     <div class="">
                         <div class="">
-                            <a class=" btn btn-primary "  href="index.php?action=addPost" >+ New topic </a>
+                            <a class=" btn btn-primary "  href="index.php" >+ Back to Index </a>
 
+                            <div class="form-popup" id="myForm">
+                                <form action="" class="form-container" method="POST">
+                                    <h3  > <label for="name">Header</label></h3>
+                                    <!--<input  id="name" type="text" name="name" width="280" required/>-->
+                                    <textarea id="name" rows="5" cols="270" placeholder="Write your question" name="header"></textarea>
+                                    <div class="flax">
+                                        <div class="item">
+                                            <h3> <p>Categories</p></h3>
+                                            <select name="categories"  >
+                                                <option selected value="" disabled selected ></option>
+                                                <option value="Books" >Books</option>
+                                                <option value="Technology">Technology</option>
+                                                <option value="Science">Science</option>
+                                                <option value="Language">Language</option>
+                                                <option value="Health">Health</option>
+                                                <option value="Movies">Movies</option>
+                                            </select>
+                                        </div>
+                                        <div class="item">
+                                            <h3> <p>Tags</p></h3>
+                                            <select  name="tags"  >
+                                                <option selected value="" disabled selected name="tags"></option>
+                                                <option value="TV-SHOWS" >TV-SHOWS</option>
+                                                <option value="HBO">HBO</option>
+                                                <option value="NETFLIX">NETFLIX</option>
+                                                <option value="SPANISH">SPANISH</option>
+                                                <option value="PHP">PHP</option>
+                                                <option value="AJAX">AJAX</option>
+                                                <option value="MVC">MVC</option>
+                                                <option value="FRAMEWORK">FRAMEWORK</option>
+                                                <option value="BOOKS">BOOKS</option>
+                                                <option value="BIOLOGY">BIOLOGY</option>
+                                                <option value="ENGLISH">ENGLISH</option>
+                                                <option value="ASP.NET">ASP.NET</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="item">
+                                        <h3>  <label for="instructions">Detail</label></h3>
+                                        <textarea id="instructions" rows="10" cols="270" placeholder="Write detail question" name="detail"></textarea>
+                                    </div>
+                                    <br>
+                                    <div class="flax">
+                                        <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
 
+                                    </div>
+                                </form>
+                            </div>
 
 
 
 
                         </div>
 
-                        <!--<div class="col-md-5 col-sm-5">
-                            <div class="tools">
-                                <ul class="publishing-tools list-inline">
-                                    <li><a href="#"><i class="ion-compose"></i></a></li>
-                                    <li><a href="#"><i class="ion-images"></i></a></li>
-
-                                </ul>
-                                <button class="btn btn-primary pull-right">Publish</button>
-                            </div>
-                        </div>-->
 
                     </div>
                 </div><!-- Post Create Box End-->
 
-                <!-- Post Content
-                ================================================= -->
-                <?php
-                foreach ( $dataUser as $value){
-                    ?>
-                <div class="post-content">
-                    <!--<img src="../images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
-                    <h3><a href="#" class="profile-link">  <?php
-                               echo $value->header;
-                            ?>  </a> </h3>
-                    <div class="post-container">
-                        <img src="<?php  echo ($value->Infor_User[0]->Avatar); ?>" alt="user" class="profile-photo-md pull-left" />
-                        <div class="post-detail">
 
-                            <div class="user-info">
-                                <h5><a href="timeline.html" class="profile-link"><?php  echo ($value->Infor_User[0]->Name); ?></a> <span class="following"><?php  echo $value->categories;  ?></span></h5>
-
-                                <p class="text-muted"><?php echo  ($value->date_created); ?></p>
-                            </div>
-
-                            <div class="reaction">
-                                <a class="btn text-green"><i class="icon ion-thumbsup"></i><?php  echo $value->like;  ?></a>
-                                <a class="btn text-red"><i class="fa fa-thumbs-down"></i> <?php  echo $value->unlike; ?></a>
-                            </div>
-                            <div class="line-divider"></div>
-                            <div class="">
-                                <?php
-                                for ($x = 0; $x < count($value->Tags); $x++) { ?>
-                                <a href="#"  class="bts default" ><?php  echo $value->Tags[$x]; ?></a>
-                                    <?php
-                                }
-                                ?>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <?php
-                }
-                ?>
             </div>
 
             <!-- Newsfeed Common Side Bar Right

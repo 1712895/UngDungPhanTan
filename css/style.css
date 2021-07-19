@@ -1940,3 +1940,62 @@ ul.contact li i{
 .bts:hover {background: #eee;}
 
 .default {color: black;}
+button.like{
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 50%;
+  color: rgba(0,150,136 ,1);
+  background-color:rgba(38,166,154 ,0.3);
+  border-color: rgba(0,150,136 ,1);
+  border-width: 1px;
+  font-size: 15px;
+}
+
+button.dislike{
+  width: 30px;
+  height: 30px;
+  margin: 0 auto;
+  line-heigth: 50px;
+  border-radius: 50%;
+  color: rgba(255,82,82 ,1);
+  background-color: rgba(255,138,128 ,0.3);
+  border-color: rgba(255,82,82 ,1);
+  border-width: 1px;
+  font-size: 15px;
+}
+.flax {
+  display:flex;
+  justify-content:space-around;
+
+}
+
+/* Button used to open the contact form - fixed at the bottom of the page */
+.open-button {
+  background-color: #555;
+  color: white;
+  padding: 16px 20px;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  position: fixed;
+  bottom: 23px;
+  right: 28px;
+  width: 280px;
+}
+
+.item input:hover, .item select:hover, .item textarea:hover {
+  border: 1px solid transparent;
+  box-shadow: 0 0 3px 0  #669999;
+  color: #669999;
+
+}
+.item {
+  position: relative;
+  margin: 10px 0;
+
+}
+.item select{
+  width:250px;
+}

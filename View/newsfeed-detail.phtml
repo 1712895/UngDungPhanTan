@@ -41,7 +41,7 @@ require_once ('inc/header.phtml');
 
             <!-- Post Create Box
                 ================================================= -->
-                <div class="create-post">
+               <!-- <div class="create-post">
                     <div class="row">
                         <div class="col-md-7 col-sm-7">
                             <div class="form-group">
@@ -61,7 +61,7 @@ require_once ('inc/header.phtml');
                             </div>
                         </div>
                     </div>
-                </div><!-- Post Create Box End-->
+                </div>--><!-- Post Create Box End-->
 
                 <!-- Post Content
                 ================================================= -->
@@ -85,17 +85,18 @@ require_once ('inc/header.phtml');
                                 <p><?php  echo $data->detail;  ?> </i></p>
                             </div>
                             <div class="line-divider"></div>
-
+                            <?php
+                            for ($x = 0; $x < count($data->Answer); $x++) { ?>
                             <div class="post-comment">
                                 <img src="images/users/user-11.jpg" alt="" class="profile-photo-sm" />
-                                <p><a href="timeline.html" class="profile-link">Diana </a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
-
-
+                                <p><a href="timeline.html" class="profile-link">Diana </a><?php  echo $data->Answer[$x]->date;  ?><br><?php  echo $data->Answer[$x]->Answer;  ?> </p>
                             </div>
-                            <div class="post-comment">
-                                <img src="images/users/user-4.jpg" alt="" class="profile-photo-sm" />
-                                <p><a href="timeline.html" class="profile-link">John</a> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud </p>
-                            </div>
+                                <a class="btn text-green"><i class="icon ion-thumbsup"></i> <?php  echo $data->Answer[$x]->like;  ?> </a>
+                                <a class="btn text-red"><i class="fa fa-thumbs-down"></i> <?php  echo $data->Answer[$x]->unlike;  ?></a>
+                                <div class="line-divider"></div>
+                                <?php
+                            }
+                            ?>
                             <div class="post-comment">
                                 <img src="images/users/user-1.jpg" alt="" class="profile-photo-sm" />
                                 <input type="text" class="form-control" placeholder="Post a comment">

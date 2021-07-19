@@ -26,6 +26,9 @@
       <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
     </file-type-list>
   </component>
+  <component name="PhpTemplates">
+    <option name="NEW_PHP_FILE_LAST_EXTENSION" value="phtml" />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="PHP">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/mongodb/mongodb" />
@@ -43,7 +46,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/View" />
+    <property name="last_opened_file_path" value="E:/filecuauyen/Demo_PHP_MVC (1)" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -106,7 +109,8 @@
       <workItem from="1626322652787" duration="1389000" />
       <workItem from="1626427057902" duration="17385000" />
       <workItem from="1626488896977" duration="24560000" />
-      <workItem from="1626576346706" duration="400000" />
+      <workItem from="1626576346706" duration="33439000" />
+      <workItem from="1626663634713" duration="5355000" />
     </task>
     <servers />
   </component>

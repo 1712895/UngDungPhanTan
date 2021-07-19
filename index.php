@@ -33,6 +33,7 @@ if (isset($_REQUEST["action"]))
 
 switch ($action)
 {
+
     case "profile":
         $controller = new UserController();
         $controller->profile();
@@ -40,6 +41,10 @@ switch ($action)
     case "detail":
         $controller = new PostController();
         $controller->detail();
+        break;
+    case "addPost":
+        $controller = new PostController();
+        $controller->addPost();
         break;
     default:
         $controller = new PostController();
