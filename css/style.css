@@ -1999,3 +1999,83 @@ button.dislike{
 .item select{
   width:250px;
 }
+.item1 select{
+  width:200px;
+}
+.love-button {
+  display: inline-block;
+  position: relative;
+  font-size: 8px;
+  cursor: pointer;
+}
+.love-button:before {
+   font-size: 3em;
+   color: #27aae1;
+   content: '♥';
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%);
+ }
+.love-button:after {
+   font-size: 3em;
+   color:  #ff3252;
+   content: '♥';
+   position: absolute;
+   left: 50%;
+   top: 50%;
+   transform: translate(-50%, -50%) scale(0);
+   transition: transform 0.2s;
+ }
+.love-button.liked::after {
+   transform: translate(-50%, -50%) scale(1.1);
+ }
+/* Modal Content */
+.modal-content {
+  position: relative;
+  background-color: #fefefe;
+  margin: auto;
+  padding: 0;
+  border: 1px solid #27aae1;
+  width: 80%;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
+  -webkit-animation-name: animatetop;
+  -webkit-animation-duration: 0.4s;
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+/* Add Animation */
+@-webkit-keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+@keyframes animatetop {
+  from {top:-300px; opacity:0}
+  to {top:0; opacity:1}
+}
+
+/* The Close Button */
+.close {
+  color: white;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.modal-header {
+  padding: 2px 16px;
+  background-color: #27aae1;
+  color: white;
+}
+
+.modal-body {padding: 2px 16px;}
+

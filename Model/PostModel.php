@@ -3,6 +3,7 @@
 
 class PostModel
 {
+    public $_id;
     public $header;
     public $detail;
     public $id_User;
@@ -14,6 +15,7 @@ class PostModel
     public $Answer;
     function __construct()
     {
+        $this->_id = "";
         $this->header = "";
         $this->detail = "";
         $this->id_User = "";
@@ -23,11 +25,6 @@ class PostModel
         $this->like = "";
         $this->unlike = "";
         $this->Answer="";
-    }
-    public static function listAll() {
-        $db = connect();
-        $result = $db->Post->find();
-        return $result;
     }
     public static function AllQuestion() {
         $db = connect();
@@ -40,12 +37,6 @@ class PostModel
             ]],
              ['$sort' => [ 'date_created' => -1 ]]
         ]);
-        return $result;
-    }
-    public static function DetailQuestion()
-    {
-        $db = connect();
-        $result = $db->Post->findOne();
         return $result;
     }
     public static function addPost($header,$idUser,$categories,$tags,$detail)
@@ -64,6 +55,64 @@ class PostModel
         ]);
         return $result;
     }
+    public static function filterCategories($catName)
+    {
+        $db = connect();
+        $result = $db->Post->aggregate([
+            ['$lookup' => [
+                'from' => 'User',
+                'localField' => 'id_User',
+                'foreignField' => '_id',
+                'as' => 'Infor_User'
+            ]],
+            ['$sort' => [ 'date_created' => -1 ]],
+            ['$match' => [ 'categories'=> $catName]]
+        ]);
+        return $result;
+    }
+    public static function filterTags($tagName)
+    {
+        $db = connect();
+        $result = $db->Post->aggregate([
+            ['$lookup' => [
+                'from' => 'User',
+                'localField' => 'id_User',
+                'foreignField' => '_id',
+                'as' => 'Infor_User'
+            ]],
+            ['$sort' => [ 'date_created' => -1 ]],
+            ['$match' => [ 'Tags'=> $tagName]]
+        ]);
+        return $result;
+    }
+    public static function getDetail($_id)
+    {
+        $db = connect();
+        $result = $db->Post->aggregate([
+            ['$lookup' => [
+                'from' => 'User',
+                'localField' => 'id_User',
+                'foreignField' => '_id',
+                'as' => 'Infor_User'
+            ]],
+            ['$lookup' => [
+                'from' => 'User',
+                'localField' => 'Answer.IDUser',
+                'foreignField' => '_id',
+                'as' => 'Infor_User_Comment'
+            ]],
+            ['$match' => [ '_id'=> new MongoDB\BSON\ObjectId("$_id")]]
+        ]);
+        return $result;
+    }
+    /*public static function get($_id)
+{
+    $db = connect();
+    $result = $db->Post->findOne([
+        '_id'=> new MongoDB\BSON\ObjectId("$_id")
+    ]);
+    return $result;
+}*/
 
 }
 class Answer

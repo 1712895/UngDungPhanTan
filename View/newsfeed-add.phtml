@@ -27,12 +27,31 @@ require_once ('inc/header.phtml');
                     <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 0 Answer </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
-                    <li><i class="icon ion-ios-paper"></i><div><a href="newsfeed.html">Books</a></div></li>
-                    <li><i class="icon ion-ios-people"></i><div><a href="newsfeed-people-nearby.html">Technology</a></div></li>
-                    <li><i class="icon ion-ios-people-outline"></i><div><a href="newsfeed-friends.html">Science</a></div></li>
-                    <li><i class="icon ion-chatboxes"></i><div><a href="newsfeed-messages.html">Language</a></div></li>
-                    <li><i class="icon ion-images"></i><div><a href="newsfeed-images.html">Health</a></div></li>
-                    <li><i class="icon ion-ios-videocam"></i><div><a href="newsfeed-videos.html">Movies</a></div></li>
+                    <h4 class="grey">Categories</h4>
+                    <li><i class="icon ion-ios-paper"></i><div><a href="index.php?catName=Books">Books</a></div></li>
+                    <li><i class="icon ion-ios-people"></i><div><a href="index.php?catName=Technology">Technology</a></div></li>
+                    <li><i class="icon ion-ios-people-outline"></i><div><a href="index.php?catName=Science">Science</a></div></li>
+                    <li><i class="icon ion-chatboxes"></i><div><a href="index.php?catName=Language">Language</a></div></li>
+                    <li><i class="icon ion-images"></i><div><a href="index.php?catName=Health">Health</a></div></li>
+                    <li><i class="icon ion-ios-videocam"></i><div><a href="index.php?catName=Movies">Movies</a></div></li>
+                    <h4 class="grey">Tags</h4>
+                    <div class="item1">
+                        <select  name="tags" onchange="location = this.value;" >
+                            <option selected value="" disabled selected name="tags"></option>
+                            <option value="index.php?tagName=TV-SHOWS" >TV-SHOWS</option>
+                            <option value="index.php?tagName=HBO">HBO</option>
+                            <option value="index.php?tagName=NETFLIX">NETFLIX</option>
+                            <option value="index.php?tagName=SPANISH">SPANISH</option>
+                            <option value="index.php?tagName=PHP">PHP</option>
+                            <option value="index.php?tagName=AJAX">AJAX</option>
+                            <option value="index.php?tagName=MVC">MVC</option>
+                            <option value="index.php?tagName=FRAMEWORK">FRAMEWORK</option>
+                            <option value="index.php?tagName=BOOKS">BOOKS</option>
+                            <option value="index.php?tagName=BIOLOGY">BIOLOGY</option>
+                            <option value="index.php?tagName=ENGLISH">ENGLISH</option>
+                            <option value="index.php?tagName=ASP.NET">ASP.NET</option>
+                        </select>
+                    </div>
                 </ul>
             </div>
             <div class="col-md-7">

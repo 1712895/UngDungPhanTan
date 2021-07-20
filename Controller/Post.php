@@ -5,13 +5,30 @@
 class PostController
 {
     public function index()
-    {
+    {   $catName='';
+        $tagName='';
         $dataUser = PostModel::AllQuestion();
+        if(isset($_REQUEST['catName'])){
+            $catName= $_REQUEST['catName'];
+            console_log($catName);
+            $dataUser = PostModel::filterCategories($catName);
+        }
+        if(isset($_REQUEST['tagName'])){
+            $tagName= $_REQUEST['tagName'];
+            console_log($tagName);
+            $dataUser = PostModel::filterTags($tagName);
+        }
         require("./View/newsfeed.phtml");
     }
+
     public function detail()
     {
-        $data = PostModel::DetailQuestion();
+        $_id = '';
+        if(isset($_REQUEST['_id'])) {
+            $_id = $_REQUEST['_id'];
+            console_log($_id);
+            $data = PostModel::getDetail($_id);
+        }
         require ("./View/newsfeed-detail.phtml");
     }
     public function addPost()

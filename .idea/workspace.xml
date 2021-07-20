@@ -46,7 +46,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="E:/filecuauyen/Demo_PHP_MVC (1)" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -110,7 +110,8 @@
       <workItem from="1626427057902" duration="17385000" />
       <workItem from="1626488896977" duration="24560000" />
       <workItem from="1626576346706" duration="33439000" />
-      <workItem from="1626663634713" duration="5355000" />
+      <workItem from="1626663634713" duration="23617000" />
+      <workItem from="1626750396382" duration="15760000" />
     </task>
     <servers />
   </component>
