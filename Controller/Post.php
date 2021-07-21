@@ -1,7 +1,5 @@
 <?php
 
-
-
 class PostController
 {
     public function index()
@@ -24,6 +22,7 @@ class PostController
     public function detail()
     {
         $_id = '';
+        $GLOBALS['IDUserCurrent'];
         if(isset($_REQUEST['_id'])) {
             $_id = $_REQUEST['_id'];
             console_log($_id);
@@ -39,7 +38,6 @@ class PostController
     $categories = $_REQUEST['categories'];
     $tags = $_REQUEST['tags'];
     $detail = $_REQUEST['detail'];
-
     $id_User ="60dd856d5cf2404ae46f63b4";
     PostModel::addPost($header, $id_User,$categories,$tags,$detail);
         }

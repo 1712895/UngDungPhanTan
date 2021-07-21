@@ -25,9 +25,20 @@ class UserModel
         $this->Password = "";
         $this->IsBlock = "";
     }
-    public static function listOne() {
+    public static function findbyID($_id) {
         $db = connect();
-            return  $db->User->findOne();
+        return  $db->User->findOne(
+            ['_id' => $_id]
+            );
+    }
+    public static function SignUp($email,$password)
+    {
+        $db = connect();
+        return $db->User->findOne(
+            ['Email'=>$email,
+              'Password' =>$password]
+        );
+
     }
 }
 ?>

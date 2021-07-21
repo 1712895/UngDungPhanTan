@@ -18,22 +18,21 @@ include 'inc/header.phtml';
             <h2 class="text-white">Find New Knowledge</h2>
             <div class="line-divider"></div>
             <div class="form-wrapper">
-                <p class="signup-text">Signup now and find awesome knowledge around the world</p>
-                <form action="#">
+                <p class="signup-text">Sign in now and find awesome knowledge around the world</p>
+                <form action="" method="post">
                     <fieldset class="form-group">
-                        <input type="text" class="form-control" id="example-name" placeholder="Enter name">
+                        <input type="text" class="form-control" id="example-name" placeholder="Enter email" name="email">
                     </fieldset>
-                    <!--<fieldset class="form-group">
-                        <input type="email" class="form-control" id="example-email" placeholder="Enter email">
-                    </fieldset>-->
                     <fieldset class="form-group">
-                        <input type="password" class="form-control" id="example-password" placeholder="Enter a password">
+                        <input type="password" class="form-control" id="example-password" placeholder="Enter a password" name="password">
                     </fieldset>
+                    <p>By signning in you agree to the terms</p>
+
+                    <button class="btn-secondary" name="sign_in" >Sign in</button>
                 </form>
-                <p>By signning up you agree to the terms</p>
-                <button class="btn-secondary">Signup</button>
+
             </div>
-            <a href="#">Already have an account?</a>
+            <a href="#">Signup a new account?</a>
             <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
         </div><!-- Sign Up Form End -->
 

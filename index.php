@@ -46,6 +46,10 @@ switch ($action)
         $controller = new PostController();
         $controller->addPost();
         break;
+    case "login":
+        $controller = new UserController();
+        $controller->login();
+        break;
     default:
         $controller = new PostController();
         $controller->index();
