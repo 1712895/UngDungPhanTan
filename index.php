@@ -50,6 +50,10 @@ switch ($action)
         $controller = new UserController();
         $controller->login();
         break;
+    case "error":
+        $controller = new UserController();
+        $controller->unauthorized_page();
+        break;
     default:
         $controller = new PostController();
         $controller->index();
