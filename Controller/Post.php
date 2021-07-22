@@ -28,6 +28,13 @@ class PostController
             console_log($_id);
             $data = PostModel::getDetail($_id);
         }
+        if(isset($_REQUEST['add_comment']))
+        {
+            UserController::authentication();
+            $comment = $_REQUEST['comment'];
+
+
+        }
         require ("./View/newsfeed-detail.phtml");
     }
     public function addPost()
@@ -43,11 +50,7 @@ class PostController
         }
         require("./View/newsfeed-add.phtml");
     }
-    public function addComment()
-    {
-        UserController::authentication();
-        require ("./View/newsfeed-comment.phtml");
-    }
+
 
 
 }

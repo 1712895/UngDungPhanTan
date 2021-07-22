@@ -59,10 +59,6 @@ switch ($action)
         $controller = new UserController();
         $controller->logout();
         break;
-    case "comment":
-        $controller = new PostController();
-        $controller->addComment();
-        break;
     default:
         $controller = new PostController();
         $controller->index();
