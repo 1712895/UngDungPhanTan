@@ -1,4 +1,5 @@
 <?php
+session_start();
 require_once("./Controller/Post.php");
 require_once("./Model/PostModel.php");
 require_once("./Controller/User.php");
@@ -53,6 +54,14 @@ switch ($action)
     case "error":
         $controller = new UserController();
         $controller->unauthorized_page();
+        break;
+    case "logout":
+        $controller = new UserController();
+        $controller->logout();
+        break;
+    case "comment":
+        $controller = new PostController();
+        $controller->addComment();
         break;
     default:
         $controller = new PostController();

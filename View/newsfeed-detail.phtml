@@ -22,8 +22,8 @@ require_once ('inc/header.phtml');
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
-                    <img src="images/users/avatardefault.jpg" alt="user" class="profile-photo" />
-                    <h5><a href="timeline.html" class="text-white">Anonymous</a></h5>
+                    <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="user" class="profile-photo" />
+                    <h5><a href="timeline.html" class="text-white"><?php  echo $_SESSION["UserName"]; ?></a></h5>
                     <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 0 Answer </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
@@ -50,6 +50,8 @@ require_once ('inc/header.phtml');
                             <option value="index.php?tagName=BIOLOGY">BIOLOGY</option>
                             <option value="index.php?tagName=ENGLISH">ENGLISH</option>
                             <option value="index.php?tagName=ASP.NET">ASP.NET</option>
+                            <option value="index.php?tagName=EATING">EATING</option>
+                            <option value="index.php?tagName=WORK-OUT">WORK-OUT</option>
                         </select>
                     </div>
                 </ul>
@@ -119,14 +121,15 @@ require_once ('inc/header.phtml');
                             }
                             ?>
                             <div class="post-comment">
-                                <img src="images/users/avatardefault.jpg" alt="" class="profile-photo-sm" />
-                                <form action="" class="form-container" method="POST">
+                                <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="" class="profile-photo-sm" />
+                                <a class="btn btn-primary  "  href="index.php?action=comment" >+ Add Comment</a>
+                                <!--<form action="" class="form-container" method="POST">
                                     <div class="item">
                                         <textarea id="instructions" rows="5" cols="270" placeholder="Write detail question" name="comment"></textarea>
                                     </div>
                                     <br>
-                                    <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
-                                </form>
+                                        <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
+                                </form>-->
                             </div>
                         </div>
                     </div>

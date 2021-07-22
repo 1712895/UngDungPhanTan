@@ -44,7 +44,7 @@ class PostModel
         $db = connect();
         $result = $db->Post->insertOne([
             'header'=> $header,
-            'id_User'=> new MongoDB\BSON\ObjectId("$idUser")  ,
+            'id_User'=> $idUser ,
             'date_created'=>date("Y-m-d"),
             'categories'=>$categories,
             'Tags'=>[$tags],

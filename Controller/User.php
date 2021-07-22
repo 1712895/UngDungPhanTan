@@ -15,8 +15,10 @@ class UserController
             if(!empty($currentUser))
             {
                 $_SESSION["IsLogined"] = True;
+                console_log($_SESSION["IsLogined"]);
                 $_SESSION["UserName"] = $currentUser->Name;
                 $_SESSION["Avatar"]=$currentUser->Avatar;
+                $_SESSION["IDUser"]=$currentUser->_id;
                 header("Location:index.php");
             }
         }
@@ -30,7 +32,7 @@ class UserController
     public function unauthorized_page()
     {
         $data = "";
-        require("./View/notification.php");
+        require("./View/notification.phtml");
     }
     //add this function at any function of controller which require to authorize
     public static function authentication()
@@ -43,6 +45,9 @@ class UserController
     public function logout()
     {
         unset($_SESSION["IsLogined"]);
+        $_SESSION["UserName"] = "Anonymous";
+        $_SESSION["Avatar"]='images/users/avatardefault.jpg';
+        $_SESSION["IDUser"]="";
         header("Location:index.php");
     }
 }

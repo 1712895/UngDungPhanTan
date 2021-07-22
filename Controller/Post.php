@@ -5,6 +5,7 @@ class PostController
     public function index()
     {   $catName='';
         $tagName='';
+        console_log($_SESSION["IDUser"]);
         $dataUser = PostModel::AllQuestion();
         if(isset($_REQUEST['catName'])){
             $catName= $_REQUEST['catName'];
@@ -22,7 +23,6 @@ class PostController
     public function detail()
     {
         $_id = '';
-        $GLOBALS['IDUserCurrent'];
         if(isset($_REQUEST['_id'])) {
             $_id = $_REQUEST['_id'];
             console_log($_id);
@@ -32,16 +32,21 @@ class PostController
     }
     public function addPost()
     {
+        UserController::authentication();
         if(isset($_REQUEST['add_post']))
         {
     $header = $_REQUEST['header'];
     $categories = $_REQUEST['categories'];
     $tags = $_REQUEST['tags'];
     $detail = $_REQUEST['detail'];
-    $id_User ="60dd856d5cf2404ae46f63b4";
-    PostModel::addPost($header, $id_User,$categories,$tags,$detail);
+    PostModel::addPost($header,$_SESSION["IDUser"],$categories,$tags,$detail);
         }
         require("./View/newsfeed-add.phtml");
+    }
+    public function addComment()
+    {
+        UserController::authentication();
+        require ("./View/newsfeed-comment.phtml");
     }
 
 
