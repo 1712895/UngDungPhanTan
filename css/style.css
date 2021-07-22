@@ -853,6 +853,16 @@ ul.online-users li span.online-dot{
   Create Post Box CSS
   ==================================================*/
 
+.heart{
+  color: #000;
+  font-size: 1.3em;
+}
+
+.heart:hover, .heart.red{
+  color:#ff3252
+}
+
+
 .create-post{
   width: 100%;
   min-height: 90px;

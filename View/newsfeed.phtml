@@ -105,7 +105,14 @@ require_once ('inc/header.phtml');
                             </div>
 
                             <div class="reaction">
-                                <a class="btn text-red"><i class="fa fa-heart"></i> <?php  echo $value->like;  ?></a>
+                                <a class="heart"><i class="fa fa-heart"></i>
+                                <?php  
+                                echo $value->like;  
+                                echo '
+                                <script src="./js/like.js">                                 
+                                </script>
+                                ';                               
+                                ?></a>
                                 <a class="btn "><i class="fa fa-ellipsis-v"></i> </a>
                             </div>
                             <div class="line-divider"></div>
