@@ -9,7 +9,6 @@ require_once ('inc/header.phtml');
 ?>
 
 
-
 <!-- Header
 ================================================= -->
 
@@ -18,13 +17,14 @@ require_once ('inc/header.phtml');
 <div id="page-contents">
     <div class="container">
         <div class="row">
+
             <!-- Newsfeed Common Side Bar Left.
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
                     <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="user" class="profile-photo" />
                     <h5><a href="timeline.html" class="text-white"><?php  echo $_SESSION["UserName"]; ?></a></h5>
-                    <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> </a>
+                    <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 0 Answer </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
                     <h4 class="grey">Categories</h4>
@@ -50,8 +50,6 @@ require_once ('inc/header.phtml');
                             <option value="index.php?tagName=BIOLOGY">BIOLOGY</option>
                             <option value="index.php?tagName=ENGLISH">ENGLISH</option>
                             <option value="index.php?tagName=ASP.NET">ASP.NET</option>
-                            <option value="index.php?tagName=EATING">EATING</option>
-                            <option value="index.php?tagName=WORK-OUT">WORK-OUT</option>
                         </select>
                     </div>
                 </ul>
@@ -63,77 +61,29 @@ require_once ('inc/header.phtml');
                 <div class="create-post">
                     <div class="">
                         <div class="">
-                            <a class=" btn btn-primary "  href="index.php?action=addPost" >+ New topic </a>
+                            <a class=" btn btn-primary "  href="index.php" >+ Back to Index </a>
 
-
+                            <div class="form-popup" id="myForm">
+                                <form action="" class="form-container" method="POST">
+                                    <h3  > <label for="name">Your Comment</label></h3>
+                                    <div class="item">
+                                        <textarea id="instructions" rows="5" cols="270" placeholder="Write detail question" name="comment"></textarea>
+                                    </div>
+                                    <br>
+                                    <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
+                                </form>
+                            </div>
 
 
 
 
                         </div>
 
-                        <!--<div class="col-md-5 col-sm-5">
-                            <div class="tools">
-                                <ul class="publishing-tools list-inline">
-                                    <li><a href="#"><i class="ion-compose"></i></a></li>
-                                    <li><a href="#"><i class="ion-images"></i></a></li>
-
-                                </ul>
-                                <button class="btn btn-primary pull-right">Publish</button>
-                            </div>
-                        </div>-->
 
                     </div>
                 </div><!-- Post Create Box End-->
 
-                <!-- Post Content
-                ================================================= -->
-                <?php
-                foreach ( $dataUser as $value){
-                    ?>
-                <div class="post-content">
-                    <!--<img src="../images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
-                    <h3><a href="index.php?action=detail&_id=<?php  echo ($value->_id); ?>" class="profile-link">  <?php
-                               echo $value->header;
-                            ?>  </a> </h3>
-                    <div class="post-container">
-                        <img src="<?php  echo ($value->Infor_User[0]->Avatar); ?>" alt="user" class="profile-photo-md pull-left" />
-                        <div class="post-detail">
 
-                            <div class="user-info">
-                                <h5><a href="timeline.html" class="profile-link"><?php  echo ($value->Infor_User[0]->Name); ?></a> <span class="following"><?php  echo $value->categories;  ?></span></h5>
-
-                                <p class="text-muted"><?php echo  ($value->date_created); ?></p>
-                            </div>
-
-                            <div class="reaction">
-                                <a class="heart"><i class="fa fa-heart"></i>
-                                <?php  
-                                echo $value->like;  
-                                echo '
-                                <script src="./js/like.js">                                 
-                                </script>
-                                ';                               
-                                ?></a>
-                                <a class="btn "><i class="fa fa-ellipsis-v"></i> </a>
-                            </div>
-                            <div class="line-divider"></div>
-                            <div class="">
-                                <?php
-                                for ($x = 0; $x < count($value->Tags); $x++) { ?>
-                                    <button class="bts default" ><?php  echo $value->Tags[$x]; ?></button>
-                                    <?php
-                                }
-                                ?>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <?php
-                }
-                ?>
             </div>
 
             <!-- Newsfeed Common Side Bar Right
@@ -176,7 +126,6 @@ require_once ('inc/header.phtml');
                             <a href="#" class="text-green">Add friend</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
