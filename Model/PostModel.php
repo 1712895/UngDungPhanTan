@@ -105,6 +105,11 @@ class PostModel
         ]);
         return $result;
     }
+    public static function addComment($comment,$UserID,$IDPost)
+    {
+        $db=connect();
+
+    }
     /*public static function get($_id)
 {
     $db = connect();
