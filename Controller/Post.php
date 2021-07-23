@@ -61,6 +61,28 @@ class PostController
         require("./View/newsfeed-add.phtml");
     }
 
+// like unlike
+    public static function Like($_id)
+        {
+        if (isset($_POST['action'])) {
+            $post_id = $_POST['post_id'];
+            $action = $_POST['action'];
+
+            switch ($action) {
+                case 'like':
+                    //thay doi luot like Mongo DB
+                    break;
+                case 'unlike':
+                    //thay doi luot like Mongo DB
+                    break;
+                default:
+                    break;
+                }
+
+            // execute query to effect changes in the database ...
+            exit(0);
+            }
+        }
 
 
 }
