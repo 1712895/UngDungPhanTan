@@ -858,9 +858,8 @@ ul.online-users li span.online-dot{
   font-size: 1.3em;
 }
 
-.heart:hover, .red{
+.heart.red{
   color:#ff3252;
-  font-size: 1.3em;
 }
 
 

@@ -1,9 +1,13 @@
-$(".heart").click(function () {
+jQuery(function ($) {
+  $('.heart').click(function () {
+      $(this).toggleClass('red')
+  })
+})
+
+
+/*$(".heart").click(function () {
     $(this).toggleClass("red");
-});
-
-
-
+});*/
 
 /*
 // check for saved 'darkMode' in localStorage
