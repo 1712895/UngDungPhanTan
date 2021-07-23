@@ -23,18 +23,28 @@ class PostController
     public function detail()
     {
         $_id = '';
+        $notice = 'Comment your thinking about this post <3';
         if(isset($_REQUEST['_id'])) {
             $_id = $_REQUEST['_id'];
             console_log($_id);
-            $data = PostModel::getDetail($_id);
         }
         if(isset($_REQUEST['add_comment']))
         {
             UserController::authentication();
             $comment = $_REQUEST['comment'];
+            if(empty(PostModel::notice_addcomment($_SESSION["IDUser"],$_id)))
+            {
 
+                $notice = "Comment Sucessful !!!";
+                PostModel::addComment($comment,$_SESSION["IDUser"],$_id);
+            }
+            else
+            {
+                $notice = "You already comment in this post. You can't comment this post !!!";
+            }
 
         }
+        $data = PostModel::getDetail($_id);
         require ("./View/newsfeed-detail.phtml");
     }
     public function addPost()

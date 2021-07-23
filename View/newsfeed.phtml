@@ -22,8 +22,8 @@ require_once ('inc/header.phtml');
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
-                    <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="user" class="profile-photo" />
-                    <h5><a href="timeline.html" class="text-white"><?php  echo $_SESSION["UserName"]; ?></a></h5>
+                    <img src="<?php if(isset($_SESSION["Avatar"])){echo $_SESSION["Avatar"];}else{echo 'images/users/avatardefault.jpg';}  ?>" alt="user" class="profile-photo" />
+                    <h5><a href="timeline.html" class="text-white"><?php if(isset($_SESSION["UserName"])){echo $_SESSION["UserName"];}else{echo 'Anonymous';}  ?></a></h5>
                     <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">

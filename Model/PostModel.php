@@ -108,7 +108,25 @@ class PostModel
     public static function addComment($comment,$UserID,$IDPost)
     {
         $db=connect();
-
+        $result = $db->Post->findOneAndUpdate(
+            ['_id'=> new MongoDB\BSON\ObjectId("$IDPost")],
+            ['$push' => ['Answer' => [
+                'IDUser' => $UserID,
+                'Answer' => $comment,
+                'date' => date("Y-m-d"),
+                'like' => 0,
+                'unlike' => 0
+            ]]]
+        );
+    }
+    public static function notice_addcomment($UserID,$IDPost)
+    {
+        $db=connect();
+        $result = $db->Post->findOne([
+            '_id'=> new MongoDB\BSON\ObjectId("$IDPost"),
+            'Answer.IDUser' => $UserID
+        ]);
+        return $result;
     }
     /*public static function get($_id)
 {

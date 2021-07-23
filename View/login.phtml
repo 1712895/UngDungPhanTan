@@ -30,7 +30,10 @@ include 'inc/header.phtml';
 
                     <button class="btn-secondary" name="sign_in" >Sign in</button>
                 </form>
-
+            </div>
+            <div class="alert">
+                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                <strong><?php  echo $notice;  ?></strong>
             </div>
             <a href="#">Signup a new account?</a>
             <img class="form-shadow" src="images/bottom-shadow.png" alt="" />

@@ -22,8 +22,8 @@ require_once ('inc/header.phtml');
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
-                    <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="user" class="profile-photo" />
-                    <h5><a href="timeline.html" class="text-white"><?php  echo $_SESSION["UserName"]; ?></a></h5>
+                    <img src="<?php if(isset($_SESSION["Avatar"])){echo $_SESSION["Avatar"];}else{echo 'images/users/avatardefault.jpg';}  ?>" alt="user" class="profile-photo" />
+                    <h5><a href="timeline.html" class="text-white"><?php if(isset($_SESSION["UserName"])){echo $_SESSION["UserName"];}else{echo 'Anonymous';}  ?></a></h5>
                     <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 0 Answer </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
@@ -128,16 +128,22 @@ require_once ('inc/header.phtml');
                                 <?php
                             }
                             ?>
+                            <div class="alert">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                <strong><?php  echo $notice;  ?></strong>
+                            </div>
                             <div class="post-comment">
-                                <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="" class="profile-photo-sm" />
+                                <img src="<?php if(isset($_SESSION["Avatar"])){echo $_SESSION["Avatar"];}else{echo 'images/users/avatardefault.jpg';}  ?>" alt="" class="profile-photo-sm" />
+                                <?php    ?>
                                 <form action="" class="form-container" method="POST">
                                     <div class="item">
                                         <textarea id="instructions" rows="5" cols="270" placeholder="Write detail question" name="comment"></textarea>
                                     </div>
                                     <br>
-                                        <button class="btn btn-primary  " type="submit" name = "add_comment"  >Submit</button>
+                                        <button class="btn btn-primary  " type="submit" name = "add_comment" >Submit</button>
                                 </form>
                             </div>
+
                         </div>
                     </div>
                 </div>
@@ -201,7 +207,6 @@ require_once 'inc/footer.phtml';
 
 
 ?>
-
 
 </body>
 </html>

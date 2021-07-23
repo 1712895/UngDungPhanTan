@@ -5,6 +5,7 @@ class UserController
 {
     public function login()
     {
+        $notice = 'Sign in to joint with us !!!';
         if(isset($_REQUEST['sign_in']))
         {
             $email = $_REQUEST['email'];
@@ -20,6 +21,10 @@ class UserController
                 $_SESSION["Avatar"]=$currentUser->Avatar;
                 $_SESSION["IDUser"]=$currentUser->_id;
                 header("Location:index.php");
+            }
+            else
+            {
+                $notice = 'Fail !!! Please try again.';
             }
         }
         require("./View/login.phtml");
