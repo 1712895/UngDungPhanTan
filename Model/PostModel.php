@@ -95,17 +95,12 @@ class PostModel
                 'foreignField' => '_id',
                 'as' => 'Infor_User'
             ]],
-            ['$lookup' => [
-                'from' => 'User',
-                'localField' => 'Answer.IDUser',
-                'foreignField' => '_id',
-                'as' => 'Infor_User_Comment'
-            ]],
-            ['$match' => [ '_id'=> new MongoDB\BSON\ObjectId("$_id")]]
+            ['$match' => [ '_id'=> new MongoDB\BSON\ObjectId("$_id")]],
+
         ]);
         return $result;
     }
-    public static function addComment($comment,$UserID,$IDPost)
+    public static function addComment($comment,$UserID,$IDPost,$nameUser,$avatarUser)
     {
         $db=connect();
         $result = $db->Post->findOneAndUpdate(
@@ -115,11 +110,13 @@ class PostModel
                 'Answer' => $comment,
                 'date' => date("Y-m-d"),
                 'like' => 0,
-                'unlike' => 0
+                'unlike' => 0,
+                'Name' => $nameUser,
+                'Avatar' => $avatarUser
             ]]]
         );
     }
-    public static function notice_addcomment($UserID,$IDPost)
+/*    public static function notice_addcomment($UserID,$IDPost)
     {
         $db=connect();
         $result = $db->Post->findOne([
@@ -127,7 +124,7 @@ class PostModel
             'Answer.IDUser' => $UserID
         ]);
         return $result;
-    }
+    }*/
     /*public static function get($_id)
 {
     $db = connect();
@@ -145,6 +142,8 @@ class Answer
     public $date;
     public $like;
     public $unlike;
+    public $Name;
+    public $Avatar;
     function __construct()
     {
         $this->IDUser="";
@@ -152,7 +151,8 @@ class Answer
         $this->date="";
         $this->like="";
         $this->unlike="";
-
+        $this->Name="";
+        $this->Avatar="";
     }
 }
 

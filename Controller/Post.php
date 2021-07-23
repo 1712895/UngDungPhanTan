@@ -32,21 +32,15 @@ class PostController
         {
             UserController::authentication();
             $comment = $_REQUEST['comment'];
-            if(empty(PostModel::notice_addcomment($_SESSION["IDUser"],$_id)))
-            {
-
+            $usercurrent = UserModel::findbyID($_SESSION["IDUser"]);
                 $notice = "Comment Sucessful !!!";
-                PostModel::addComment($comment,$_SESSION["IDUser"],$_id);
-            }
-            else
-            {
-                $notice = "You already comment in this post. You can't comment this post !!!";
-            }
+                PostModel::addComment($comment,$_SESSION["IDUser"],$_id,$usercurrent->Name,$usercurrent->Avatar);
 
         }
         $data = PostModel::getDetail($_id);
         require ("./View/newsfeed-detail.phtml");
     }
+
     public function addPost()
     {
         UserController::authentication();

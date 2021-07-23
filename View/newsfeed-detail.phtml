@@ -115,8 +115,8 @@ require_once ('inc/header.phtml');
                             <?php
                             for ($x = 0; $x < count($value->Answer); $x++) { ?>
                             <div class="post-comment">
-                                <img src="<?php  echo $value->Infor_User_Comment[$x]->Avatar;  ?>" alt="" class="profile-photo-sm" />
-                                <p><a href="timeline.html" class="profile-link"><?php  echo $value->Infor_User_Comment[$x]->Name;  ?> </a><?php  echo $value->Answer[$x]->date;  ?><br><?php  echo $value->Answer[$x]->Answer;  ?> </p>
+                                <img src="<?php  echo $value->Answer[$x]->Avatar;  ?>" alt="" class="profile-photo-sm" />
+                                <p><a href="timeline.html" class="profile-link"><?php  echo $value->Answer[$x]->Name;  ?> </a><?php  echo $value->Answer[$x]->date;  ?><br><?php  echo $value->Answer[$x]->Answer;  ?> </p>
                             </div>
                                 <a class="heart"><i class="fa fa-heart"></i>
                                 <?php  echo $value->Answer[$x]->like;  
