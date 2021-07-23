@@ -99,7 +99,7 @@ require_once ('inc/header.phtml');
                                 <p class="text-muted"><?php  echo $value->date_created;  ?></p>
                             </div>
                             <div class="reaction">
-                                <a class="heart"><i class="fa fa-heart"></i> <?php  echo $value->like;  
+                                <a class="heart" id ="<?php  echo ($value->_id); ?>"><i class="fa fa-heart"></i> <?php  echo $value->like;  
                                 echo '
                                 <script src="./js/like.js">                                 
                                 </script>
