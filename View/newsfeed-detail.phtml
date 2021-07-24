@@ -140,8 +140,30 @@ require_once ('inc/header.phtml');
                                     <div class="item">
                                         <textarea id="instructions" rows="5" cols="270" placeholder="Write detail question" name="comment"></textarea>
                                     </div>
-                                    <br>
-                                        <button class="btn btn-primary  " type="submit" name = "add_comment" >Submit</button>
+
+                                    <div class="center">
+                                        <div class="form-input">
+                                            <label for="file-ip-1">Upload Image</label>
+                                            <input type="file" id="file-ip-1" name="file" accept="image/*" onchange="showPreview(event);">
+                                            <div class="preview">
+                                                <img id="file-ip-1-preview">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function showPreview(event){
+                                            if(event.target.files.length > 0){
+                                                var src = URL.createObjectURL(event.target.files[0]);
+                                                var preview = document.getElementById("file-ip-1-preview");
+                                                preview.src = src;
+                                                preview.style.display = "block";
+                                            }
+                                        }
+                                    </script>
+                                    <div class="flax">
+                                        <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
+
+                                    </div>
                                 </form>
                             </div>
 

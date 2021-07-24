@@ -64,8 +64,8 @@ require_once ('inc/header.phtml');
                             <a class=" btn btn-primary "  href="index.php" >+ Back to Index </a>
 
                             <div class="form-popup" id="myForm">
-                                <form action="" class="form-container" method="POST">
-                                    <h3  > <label for="name">Header</label></h3>
+                                <form action="" class="form-container" method="POST" enctype="multipart/form-data">
+                                    <h3> <label for="name">Header</label></h3>
                                     <!--<input  id="name" type="text" name="name" width="280" required/>-->
                                     <textarea id="name" rows="5" cols="270" placeholder="Write your question" name="header"></textarea>
                                     <div class="flax">
@@ -100,16 +100,37 @@ require_once ('inc/header.phtml');
                                             </select>
                                         </div>
                                     </div>
+                                    <div class="center">
+                                        <div class="form-input">
+                                            <label for="file-ip-1">Upload Image</label>
+                                            <input type="file" id="file-ip-1" name="file" accept="image/*" onchange="showPreview(event);">
+                                            <div class="preview">
+                                                <img id="file-ip-1-preview">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <script>
+                                        function showPreview(event){
+                                            if(event.target.files.length > 0){
+                                                var src = URL.createObjectURL(event.target.files[0]);
+                                                var preview = document.getElementById("file-ip-1-preview");
+                                                preview.src = src;
+                                                preview.style.display = "block";
+                                            }
+                                        }
+                                    </script>
+
                                     <div class="item">
                                         <h3>  <label for="instructions">Detail</label></h3>
                                         <textarea id="instructions" rows="10" cols="270" placeholder="Write detail question" name="detail"></textarea>
                                     </div>
-                                    <br>
+
                                     <div class="flax">
                                         <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
 
                                     </div>
                                 </form>
+
                             </div>
 
 
