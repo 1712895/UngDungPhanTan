@@ -108,17 +108,21 @@ require_once ('inc/header.phtml');
                             </div>
                             <div class="line-divider"></div>
                             <div class="post-text">
+                                    <?php if(!empty($value->img)){echo '<img src="'.$value->img.'" alt="post-image" class="img-responsive post-image" />';}  ?>
                                 <p><?php  echo $value->detail;
                                     ?> </i></p>
                             </div>
+
                             <div class="line-divider"></div>
                             <?php
                             for ($x = 0; $x < count($value->Answer); $x++) {
                                 if($value->Answer[$x]->check == true ){ ?>
                             <div class="post-comment">
+
                                 <img src="<?php  echo $value->Answer[$x]->Avatar;  ?>" alt="" class="profile-photo-sm" />
                                 <p><a href="timeline.html" class="profile-link"><?php  echo $value->Answer[$x]->Name;  ?> </a><?php  echo $value->Answer[$x]->date;  ?><br><?php  echo $value->Answer[$x]->Answer;  ?> </p>
                             </div>
+                                    <?php if(!empty($value->Answer[$x]->img)){echo '<img src="'.$value->Answer[$x]->img.'" alt="post-image" class="img-responsive post-image" />';}  ?>
                                 <a class="heart"><i class="fa fa-heart"></i>
                                 <?php  echo $value->Answer[$x]->like;  
                                 echo '
@@ -133,12 +137,13 @@ require_once ('inc/header.phtml');
                             ?>
                             <div class="alert">
                                 <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                                <strong><?php  echo $notice;  ?></strong>
+                                <strong><?php  echo $notice; echo $notice1;  ?></strong>
                             </div>
                             <div class="post-comment">
+
                                 <img src="<?php if(isset($_SESSION["Avatar"])){echo $_SESSION["Avatar"];}else{echo 'images/users/avatardefault.jpg';}  ?>" alt="" class="profile-photo-sm" />
                                 <?php    ?>
-                                <form action="" class="form-container" method="POST">
+                                <form action="" class="form-container" method="POST" enctype="multipart/form-data">
                                     <div class="item">
                                         <textarea id="instructions" rows="5" cols="270" placeholder="Write detail question" name="comment"></textarea>
                                     </div>

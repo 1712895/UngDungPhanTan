@@ -14,6 +14,7 @@ class PostModel
     public $unlike;
     public $Answer;
     public $check;
+    public $img;
     function __construct()
     {
         $this->_id = "";
@@ -27,6 +28,7 @@ class PostModel
         $this->unlike = "";
         $this->Answer="";
         $this->check="";
+        $this->img="";
     }
     public static function AllQuestion() {
         $db = connect();
@@ -42,7 +44,7 @@ class PostModel
         ]);
         return $result;
     }
-    public static function addPost($header,$idUser,$categories,$tags,$detail)
+    public static function addPost($header,$idUser,$categories,$tags,$detail,$img)
     {
         $db = connect();
         $result = $db->Post->insertOne([
@@ -55,7 +57,8 @@ class PostModel
             'like'=>0,
             'unlike'=>0,
             'Answer'=>[],
-            'check' => true
+            'check' => true,
+            'img' => $img
         ]);
         return $result;
     }
@@ -103,7 +106,7 @@ class PostModel
         ]);
         return $result;
     }
-    public static function addComment($comment,$UserID,$IDPost,$nameUser,$avatarUser)
+    public static function addComment($comment,$UserID,$IDPost,$nameUser,$avatarUser,$img)
     {
         $db=connect();
         $result = $db->Post->findOneAndUpdate(
@@ -116,7 +119,8 @@ class PostModel
                 'unlike' => 0,
                 'Name' => $nameUser,
                 'Avatar' => $avatarUser,
-                'check' => true
+                'check' => true,
+                'img' => $img
             ]]]
         );
     }

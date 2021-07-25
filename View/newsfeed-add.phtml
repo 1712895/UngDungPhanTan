@@ -50,6 +50,8 @@ require_once ('inc/header.phtml');
                             <option value="index.php?tagName=BIOLOGY">BIOLOGY</option>
                             <option value="index.php?tagName=ENGLISH">ENGLISH</option>
                             <option value="index.php?tagName=ASP.NET">ASP.NET</option>
+                            <option value="index.php?tagName=EATING">EATING</option>
+                            <option value="index.php?tagName=WORK-OUT">WORK-OUT</option>
                         </select>
                     </div>
                 </ul>
@@ -97,8 +99,14 @@ require_once ('inc/header.phtml');
                                                 <option value="BIOLOGY">BIOLOGY</option>
                                                 <option value="ENGLISH">ENGLISH</option>
                                                 <option value="ASP.NET">ASP.NET</option>
+                                                <option value="EATING">EATING</option>
+                                                <option value="WORK-OUT">WORK-OUT</option>
                                             </select>
                                         </div>
+                                    </div>
+                                    <div class="alert">
+                                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
+                                        <strong><?php  echo $notice; ?></strong>
                                     </div>
                                     <div class="center">
                                         <div class="form-input">
