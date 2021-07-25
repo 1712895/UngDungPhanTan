@@ -15,10 +15,10 @@ include 'inc/header.phtml';
         ================================================= -->
         <div class="sign-up-form">
             <a  class="logo"><img src="images/logo.png" alt="Friend Finder"/></a>
-            <h2 class="text-white">Find New Knowledge</h2>
+            <h2 class="text-white">Let’s begin the adventure</h2>
             <div class="line-divider"></div>
             <div class="form-wrapper">
-                <p class="signup-text">Sign in now and find awesome knowledge around the world</p>
+                <p class="signup-text">Sign up now and find awesome knowledge around the world</p>
                 <form action="" method="post">
                     <fieldset class="form-group">
                         <input type="text" class="form-control" id="example-name" placeholder="Enter email" name="email">
@@ -26,16 +26,28 @@ include 'inc/header.phtml';
                     <fieldset class="form-group">
                         <input type="password" class="form-control" id="example-password" placeholder="Enter a password" name="password">
                     </fieldset>
-                    <p>By signning in you agree to the terms</p>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" id="example-name" placeholder="Enter address" name="address">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="text" class="form-control" id="example-name" placeholder="Enter name" name="name">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="number" class="form-control" id="example-name" placeholder="Enter phone" name="phone">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="date" class="form-control" id="example-name" placeholder="Enter birthday" name="birthday">
+                    </fieldset>
+                    <fieldset class="form-group">
+                        <input type="file" class="form-control" id="example-name" placeholder="Select avatar" name="avatar">
+                    </fieldset>
+                    <p>By signning up you agree to the terms</p>
 
-                    <button class="btn-secondary" name="sign_in" >Sign in</button>
+                    <button class="btn-secondary" name="sign_up" >Sign up</button>
                 </form>
+
             </div>
-            <div class="alert">
-                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
-                <strong><?php  echo $notice;  ?></strong>
-            </div>
-            <a href="index.php?action=signup">Sign up a new account?</a>
+            <a href="index.php?action=login">Already have an account? Sign in</a>
             <img class="form-shadow" src="images/bottom-shadow.png" alt="" />
         </div><!-- Sign Up Form End -->
 

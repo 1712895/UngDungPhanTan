@@ -51,6 +51,14 @@ switch ($action)
         $controller = new UserController();
         $controller->login();
         break;
+    case "signup":
+        $controller = new UserController();
+        $controller->signup();
+        break;
+    case "changepassword":
+        $controller = new UserController();
+        $controller->changepassword();
+        break;
     case "error":
         $controller = new UserController();
         $controller->unauthorized_page();
