@@ -13,6 +13,7 @@ class PostModel
     public $like;
     public $unlike;
     public $Answer;
+    public $check;
     function __construct()
     {
         $this->_id = "";
@@ -25,6 +26,7 @@ class PostModel
         $this->like = "";
         $this->unlike = "";
         $this->Answer="";
+        $this->check="";
     }
     public static function AllQuestion() {
         $db = connect();
@@ -35,7 +37,8 @@ class PostModel
                 'foreignField' => '_id',
                 'as' => 'Infor_User'
             ]],
-             ['$sort' => [ 'date_created' => -1 ]]
+             ['$sort' => [ 'date_created' => -1 ]],
+            ['$match' => [ 'check' => true]]
         ]);
         return $result;
     }
@@ -51,7 +54,8 @@ class PostModel
             'detail'=>$detail,
             'like'=>0,
             'unlike'=>0,
-            'Answer'=>[]
+            'Answer'=>[],
+            'check' => true
         ]);
         return $result;
     }
@@ -66,7 +70,7 @@ class PostModel
                 'as' => 'Infor_User'
             ]],
             ['$sort' => [ 'date_created' => -1 ]],
-            ['$match' => [ 'categories'=> $catName]]
+            ['$match' =>  [ '$and' => [['categories'=> $catName],['check'=> true]]]]
         ]);
         return $result;
     }
@@ -81,7 +85,7 @@ class PostModel
                 'as' => 'Infor_User'
             ]],
             ['$sort' => [ 'date_created' => -1 ]],
-            ['$match' => [ 'Tags'=> $tagName]]
+            ['$match' =>  [ '$and' => [['Tags'=> $tagName],['check'=> true]]]]
         ]);
         return $result;
     }
@@ -95,8 +99,7 @@ class PostModel
                 'foreignField' => '_id',
                 'as' => 'Infor_User'
             ]],
-            ['$match' => [ '_id'=> new MongoDB\BSON\ObjectId("$_id")]],
-
+            ['$match' =>  [  '_id'=> new MongoDB\BSON\ObjectId("$_id")]]
         ]);
         return $result;
     }
@@ -112,7 +115,8 @@ class PostModel
                 'like' => 0,
                 'unlike' => 0,
                 'Name' => $nameUser,
-                'Avatar' => $avatarUser
+                'Avatar' => $avatarUser,
+                'check' => true
             ]]]
         );
     }
@@ -144,6 +148,7 @@ class Answer
     public $unlike;
     public $Name;
     public $Avatar;
+    public $check;
     function __construct()
     {
         $this->IDUser="";
@@ -153,6 +158,7 @@ class Answer
         $this->unlike="";
         $this->Name="";
         $this->Avatar="";
+        $this->check="";
     }
 }
 

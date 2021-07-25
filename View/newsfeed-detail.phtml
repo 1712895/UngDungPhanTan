@@ -113,7 +113,8 @@ require_once ('inc/header.phtml');
                             </div>
                             <div class="line-divider"></div>
                             <?php
-                            for ($x = 0; $x < count($value->Answer); $x++) { ?>
+                            for ($x = 0; $x < count($value->Answer); $x++) {
+                                if($value->Answer[$x]->check == true ){ ?>
                             <div class="post-comment">
                                 <img src="<?php  echo $value->Answer[$x]->Avatar;  ?>" alt="" class="profile-photo-sm" />
                                 <p><a href="timeline.html" class="profile-link"><?php  echo $value->Answer[$x]->Name;  ?> </a><?php  echo $value->Answer[$x]->date;  ?><br><?php  echo $value->Answer[$x]->Answer;  ?> </p>
@@ -127,6 +128,7 @@ require_once ('inc/header.phtml');
                                 <a class="btn text"><i class="fa fa-ellipsis-v"></i> </a>
                                 <div class="line-divider"></div>
                                 <?php
+                                }
                             }
                             ?>
                             <div class="alert">
@@ -161,7 +163,7 @@ require_once ('inc/header.phtml');
                                         }
                                     </script>
                                     <div class="flax">
-                                        <button class="btn btn-primary  " type="submit"name = "add_post" href="index.php" >Submit</button>
+                                        <button class="btn btn-primary  " type="submit"name = "add_comment" href="index.php" >Submit</button>
 
                                     </div>
                                 </form>

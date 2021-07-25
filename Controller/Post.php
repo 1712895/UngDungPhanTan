@@ -50,7 +50,7 @@ class PostController
     $categories = $_REQUEST['categories'];
     $tags = $_REQUEST['tags'];
     $detail = $_REQUEST['detail'];
-    //PostModel::addPost($header,$_SESSION["IDUser"],$categories,$tags,$detail);
+    PostModel::addPost($header,$_SESSION["IDUser"],$categories,$tags,$detail);
     $file = $_FILES['file'];
     console_log($file);
         }

@@ -16,6 +16,7 @@ class UserController
             if(!empty($currentUser))
             {
                 $_SESSION["IsLogined"] = True;
+                $_SESSION["isAdmin"] = $currentUser->Role;
                 console_log($_SESSION["IsLogined"]);
                 $_SESSION["UserName"] = $currentUser->Name;
                 $_SESSION["Avatar"]=$currentUser->Avatar;
@@ -43,6 +44,13 @@ class UserController
     public static function authentication()
     {
         if (!isset ($_SESSION["IsLogined"]) || $_SESSION["IsLogined"] != "true")
+        {
+            header("Location:index.php?action=error");
+        }
+    }
+    public static function isAdmin()
+    {
+        if (!isset ($_SESSION["isAdmin"]) || $_SESSION["isAdmin"] != "true")
         {
             header("Location:index.php?action=error");
         }
