@@ -17,7 +17,7 @@ class UserModel
     {
         $this->Address = "";
         $this->Avatar = "";
-        $this->Birthday = "";
+        $this->Birthday = date_create('now')->format('Y-m-d H:i:s');
         $this->Email = "";
         $this->Name = "";
         $this->Phone = "";
@@ -31,7 +31,7 @@ class UserModel
             ['_id' => $_id]
             );
     }
-    public static function SignUp($email,$password)
+    public static function FindUser($email,$password)
     {
         $db = connect();
         return $db->User->findOne(
@@ -39,6 +39,24 @@ class UserModel
               'Password' =>$password]
         );
 
+    }
+
+    public static function SignUp($address,$avatar,$birthday,$email,$name,$phone,$password)
+    {
+        $db = connect();
+        console_log("test");
+        $result = $db->User->insertOne([
+            'Address'=> $address,
+            'Avatar'=> $avatar ,
+            'Birthday'=>$birthday,
+            'Email'=>$email,
+            'Name'=>$name,
+            'Phone'=>$phone,
+            'Role'=>0,
+            'Password'=>$password,
+            'IsBlock'=>0
+        ]);
+        return $result;
     }
 }
 ?>

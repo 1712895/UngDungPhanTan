@@ -12,7 +12,7 @@ class UserController
             $password = $_REQUEST['password'];
             console_log($email);
             console_log($password);
-            $currentUser = UserModel::SignUp($email, $password);
+            $currentUser = UserModel::FindUser($email, $password);
             if(!empty($currentUser))
             {
                 $_SESSION["IsLogined"] = True;
@@ -30,6 +30,53 @@ class UserController
         }
         require("./View/login.phtml");
     }
+
+    public function signup()
+    {
+        if(isset($_REQUEST['sign_up']))
+        {
+            $email = $_REQUEST['email'];
+            $password = $_REQUEST['password'];
+            $address = $_REQUEST['address'];
+            $name = $_REQUEST['name'];
+            $phone = $_REQUEST['phone'];
+            $birthday = date_create($_REQUEST['birthday'])->format('Y-m-d H:i:s');
+            $avatar = $_REQUEST['avatar'];
+           
+            //Upfile
+            //Thư mục bạn sẽ lưu file upload
+            $target_dir    = "images/uses/";
+            //Vị trí file lưu tạm trong server (file sẽ lưu trong uploads, với tên giống tên ban đầu)
+            $target_file   = $target_dir . $avatar;
+            // move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
+
+           $isSignup = UserModel::SignUp($address,"", $birthday,$email,$name, $phone,$password);
+            
+            if(!empty($isSignup))
+            {
+                header("Location:index.php?action=login");
+            }
+        }
+        require("./View/signup.phtml");
+    }
+
+    public function changepassword()
+    {
+        if(isset($_REQUEST['change_password']))
+        {
+            $email = $_REQUEST['email'];
+            $old_password = $_REQUEST['old_password'];
+            $new_password = $_REQUEST['new_password'];
+            $confirm_password = $_REQUEST['confirm_password'];
+            $currentUser = UserModel::FindUser($email, $old_password);
+            if(!empty($currentUser))
+            {
+                
+            }
+        }
+        require("./View/changepassword.phtml");
+    }
+
     public function profile()
     {
         $data = UserModel::listOne();
