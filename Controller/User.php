@@ -42,15 +42,39 @@ class UserController
             $phone = $_REQUEST['phone'];
             $birthday = date_create($_REQUEST['birthday'])->format('Y-m-d H:i:s');
             $avatar = $_REQUEST['avatar'];
-           
-            //Upfile
-            //Thư mục bạn sẽ lưu file upload
-            $target_dir    = "images/uses/";
-            //Vị trí file lưu tạm trong server (file sẽ lưu trong uploads, với tên giống tên ban đầu)
-            $target_file   = $target_dir . $avatar;
-            // move_uploaded_file($_FILES["avatar"]["tmp_name"], $target_file);
+            $fileDestination = '';
+            $file = $_FILES['avatar'];
+            $fileExt = explode('.',$file['name']);
+            $fileActualExt = strtolower(end($fileExt));
+            $allowed = array('jpg','jpeg','png','pdf');
+            if(in_array($fileActualExt,$allowed))
+            {
+                if($file['error'] === 0)
+                {
+                    if($file['size'] < 1000000)
+                    {
+                        $notice1 = "";
+                        $fileNameNew = uniqid('',true).".".$fileActualExt;
+                        $fileDestination = 'images/users/'.$fileNameNew;
+                        move_uploaded_file($file['tmp_name'],$fileDestination);
 
-           $isSignup = UserModel::SignUp($address,"", $birthday,$email,$name, $phone,$password);
+                    }
+                    else
+                    {
+                        $notice1 = "But your image is too big !!! ";
+                    }
+                }
+                else
+                {
+                    $notice1 = "But There was an error uploading your picture ";
+                }
+
+            } else
+            {
+                $notice1 = "But you cant upload your picture of this type!";
+            }
+
+           $isSignup = UserModel::SignUp($address, $fileDestination, $birthday, $email, $name, $phone,$password);
             
             if(!empty($isSignup))
             {
