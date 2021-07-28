@@ -2114,3 +2114,7 @@ button.dislike{
   display:none;
   margin-top:10px;
 }
+
+.avatar-margin {
+  margin: 10px;
+}
