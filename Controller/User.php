@@ -21,6 +21,7 @@ class UserController
                 $_SESSION["UserName"] = $currentUser->Name;
                 $_SESSION["Avatar"]=$currentUser->Avatar;
                 $_SESSION["IDUser"]=$currentUser->_id;
+                $_SESSION["Email"]=$currentUser->Email;
                 header("Location:index.php");
             }
             else
@@ -86,19 +87,26 @@ class UserController
 
     public function changepassword()
     {
-        if(isset($_REQUEST['change_password']))
+        if (!isset ($_SESSION["IsLogined"]) || $_SESSION["IsLogined"] != "true")
         {
-            $email = $_REQUEST['email'];
-            $old_password = $_REQUEST['old_password'];
-            $new_password = $_REQUEST['new_password'];
-            $confirm_password = $_REQUEST['confirm_password'];
-            $currentUser = UserModel::FindUser($email, $old_password);
-            if(!empty($currentUser))
+            header("Location:index.php?action=login");
+        } else {
+            if(isset($_REQUEST['change_password']))
             {
-                
+                $email = $_SESSION['Email'];
+                $old_password = $_REQUEST['old_password'];
+                $new_password = $_REQUEST['new_password'];
+                $confirm_password = $_REQUEST['confirm_password'];
+                $currentUser = UserModel::FindUser($email, $old_password);
+                if(!empty($currentUser))
+                {
+                    if ($new_password == $confirm_password) {
+                        $isChangePassword = UserModel::updatePassword($email,$new_password);
+                    }
+                }
             }
+            require("./View/changepassword.phtml");
         }
-        require("./View/changepassword.phtml");
     }
 
     public function profile()

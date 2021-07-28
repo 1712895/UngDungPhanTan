@@ -41,6 +41,15 @@ class UserModel
 
     }
 
+    public static function updatePassword($email,$password)
+    {
+        $db = connect();
+        return $db->User->updateOne(
+            ['Email'=>$email],
+            [ '$set' => [ 'Password' => $password ]]
+        );
+    }
+
     public static function SignUp($address,$avatar,$birthday,$email,$name,$phone,$password)
     {
         $db = connect();
