@@ -36,6 +36,7 @@ class PostController
             $usercurrent = UserModel::findbyID($_SESSION["IDUser"]);
             $notice = "Comment Sucessful !!!";
             $fileDestination = '';
+            /*bat dau tu day*/
             $file = $_FILES['file'];
             $fileExt = explode('.',$file['name']);
             $fileActualExt = strtolower(end($fileExt));
@@ -66,6 +67,7 @@ class PostController
             {
                 $notice1 = "But you cant upload your picture of this type!";
             }
+            /*ket thuc o day*/
             PostModel::addComment($comment,$_SESSION["IDUser"],$_id,$usercurrent->Name,$usercurrent->Avatar,$fileDestination);
 
         }
