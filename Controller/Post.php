@@ -124,8 +124,8 @@ class PostController
         require("./View/newsfeed-add.phtml");
     }
 // like unlike
-    public static function Like($_id)
-        {
+    public function Like($_id)
+    {
         if (isset($_POST['action'])) {
             $post_id = $_POST['post_id'];
             $action = $_POST['action'];
@@ -144,7 +144,7 @@ class PostController
             // execute query to effect changes in the database ...
             exit(0);
             }
-        }
+    }
 
 
 }

@@ -3513,9 +3513,11 @@ tbody.collapse.in {
 .dropup,
 .dropdown {
   position: relative;
+  z-index: 100;
 }
 .dropdown-toggle:focus {
   outline: 0;
+
 }
 .dropdown-menu {
   position: absolute;
@@ -3538,16 +3540,21 @@ tbody.collapse.in {
   border-radius: 4px;
   -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
           box-shadow: 0 6px 12px rgba(0, 0, 0, .175);
+  z-index: 100;
 }
 .dropdown-menu.pull-right {
   right: 0;
   left: auto;
+  z-index: 100;
 }
+
+
 .dropdown-menu .divider {
   height: 1px;
   margin: 9px 0;
   overflow: hidden;
   background-color: #e5e5e5;
+  z-index: 100;
 }
 .dropdown-menu > li > a {
   display: block;
@@ -3557,12 +3564,14 @@ tbody.collapse.in {
   line-height: 1.42857143;
   color: #333;
   white-space: nowrap;
+  z-index: 100;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
   color: #262626;
   text-decoration: none;
   background-color: #f5f5f5;
+  z-index: 100;
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
@@ -3571,6 +3580,7 @@ tbody.collapse.in {
   text-decoration: none;
   background-color: #337ab7;
   outline: 0;
+  z-index: 100;
 }
 .dropdown-menu > .disabled > a,
 .dropdown-menu > .disabled > a:hover,
@@ -3584,9 +3594,11 @@ tbody.collapse.in {
   background-color: transparent;
   background-image: none;
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
+  z-index: 100;
 }
 .open > .dropdown-menu {
   display: block;
+ 
 }
 .open > a {
   outline: 0;

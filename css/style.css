@@ -862,6 +862,10 @@ ul.online-users li span.online-dot{
   color: #ff3252;
 }
 
+.mycustomtable {
+  overflow-x: visible !important;
+  overflow-y: visible !important;
+}
 
 .create-post{
   width: 100%;
@@ -1954,7 +1958,7 @@ button.like{
   width: 30px;
   height: 30px;
   margin: 0 auto;
-  line-heigth: 50px;
+  line-height: 50px;
   border-radius: 50%;
   color: rgba(0,150,136 ,1);
   background-color:rgba(38,166,154 ,0.3);

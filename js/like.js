@@ -34,4 +34,3 @@ $(".heart").each(function() {
 });
 });
                     
-                    
