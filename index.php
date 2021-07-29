@@ -67,6 +67,10 @@ switch ($action)
         $controller = new UserController();
         $controller->logout();
         break;
+    case "profile":
+        $controller = new UserController();
+        $controller->profile();
+        break;
     default:
         $controller = new PostController();
         $controller->index();

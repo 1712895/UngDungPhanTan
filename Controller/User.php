@@ -111,7 +111,27 @@ class UserController
 
     public function profile()
     {
-        $data = UserModel::listOne();
+        //$data = UserModel::listOne();
+        $email = $_SESSION['Email'];
+        $currentUser = UserModel::FindUserByEmail($email);
+        if(!empty($currentUser))
+        {
+            $_SESSION["IsLogined"] = True;
+            
+            if ($currentUser->Role == "true" || $currentUser->Role == 1)
+                {
+                    $currentUser->Role = "Admin";
+                }
+            else $currentUser->Role = "Member";
+            $_SESSION["isAdmin"] = $currentUser->Role;
+            console_log($_SESSION["IsLogined"]);
+            $_SESSION["UserName"] = $currentUser->Name;
+            $_SESSION["Avatar"]=$currentUser->Avatar;
+            $_SESSION["IDUser"]=$currentUser->_id;
+            $_SESSION["Email"]=$currentUser->Email;
+            $_SESSION["Birthday"]=$currentUser->Birthday;
+            $_SESSION["Address"]=$currentUser->Address;
+        }
         require("./View/timeline-about.phtml");
     }
     public function unauthorized_page()

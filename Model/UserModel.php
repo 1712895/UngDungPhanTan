@@ -38,9 +38,14 @@ class UserModel
             ['Email'=>$email,
               'Password' =>$password]
         );
-
     }
-
+    public static function FindUserByEmail($email)
+    {
+        $db = connect();
+        return $db->User->findOne(
+            ['Email'=>$email]
+        );
+    }
     public static function updatePassword($email,$password)
     {
         $db = connect();
