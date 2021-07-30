@@ -33,7 +33,7 @@ class PostController
         if(isset($_REQUEST['add_comment']))
         {
             UserController::authentication();
-            if(!empty($_SESSION["IDUser"])) {
+            if(!emty($_SESSION["IDUser"])) {
                 $comment = $_REQUEST['comment'];
                 $usercurrent = UserModel::findbyID($_SESSION["IDUser"]);
                 $notice = "Comment Sucessful !!!";
