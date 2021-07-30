@@ -30,6 +30,12 @@ class PostModel
         $this->check="";
         $this->img="";
     }
+    public static function findAll()
+    {
+        $db = connect();
+        $result = $db->Post->find();
+        return $result;
+    }
     public static function AllQuestion() {
         $db = connect();
         $result = $db->Post->aggregate([
