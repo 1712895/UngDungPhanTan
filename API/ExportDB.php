@@ -8,6 +8,6 @@ echo json_encode(iterator_to_array(($records)));
 
 
 $fp = fopen('Post.json', 'w');
-fwrite($fp,json_encode(iterator_to_array(($records))));
-
+fwrite($fp,json_decode(($records)));
+fclose($fp);
 ?>
