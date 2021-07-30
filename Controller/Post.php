@@ -141,8 +141,6 @@ class PostController
             UserController::authentication();
             $notice = "Why you report this post?";
             $_id = '';
-            $notice = 'Comment your thinking about this post <3';
-            $notice1 = '';
             if(isset($_REQUEST['_id'])) {
                 $_id = $_REQUEST['_id'];
                 console_log($_id);
@@ -151,7 +149,9 @@ class PostController
             {           
             $Detail = $_REQUEST['Detail'];
             PostModel::addReport($_SESSION["IDUser"],$_id,$Detail);
+            $notice = 'Successful!';
             }
+            
             require("./View/report.phtml");
     }
 }
