@@ -4,19 +4,11 @@ header("Content-Type: application/json");
 require_once("../config/config1.php");
 $db =connect();
 $records = $db->Post->find();
-$array = json_decode($records, true);
-$items = $array->kitNew->items;
-
-foreach($items as $item){
-    echo "<tr>";
-    echo "<td>" . $item->_id . "</td>";
-    echo "<td>" . $item->header . "</td>";
-    echo "<td>" . $item->killedByCount . "</td>";
-    echo "<td>" . $item->selected . "</td>";
-    echo "<td>" . $item->unlocked . "</td>";
-    echo "</tr>";
-}
-/*$fp = fopen('Post.json', 'w');
+//echo json_encode(iterator_to_array($records1));
+$fp = fopen('../ExportFile/Post.json', 'w');
 fwrite($fp,json_encode(iterator_to_array(($records))));
-fclose($fp);*/
+fclose($fp);
+echo "Export Sucessfull !!!";
+$link = "http://localhost:63342/Diendantrithuc/index.php";
 ?>
+

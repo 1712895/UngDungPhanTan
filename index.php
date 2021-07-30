@@ -66,10 +66,10 @@ switch ($action)
         $controller = new UserController();
         $controller->logout();
         break;
-    case "profile":
+   /* case "profile":
         $controller = new UserController();
         $controller->profile();
-        break;
+        break;*/
     default:
         $controller = new PostController();
         $controller->index();
