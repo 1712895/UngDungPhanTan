@@ -111,28 +111,41 @@ class UserController
 
     public function profile()
     {
-        //$data = UserModel::listOne();
-        $email = $_SESSION['Email'];
-        $currentUser = UserModel::FindUserByEmail($email);
-        if(!empty($currentUser))
-        {
-            $_SESSION["IsLogined"] = True;
-            
-            if ($currentUser->Role == "true" || $currentUser->Role == 1)
-                {
-                    $currentUser->Role = "Admin";
-                }
-            else $currentUser->Role = "Member";
-            $_SESSION["isAdmin"] = $currentUser->Role;
-            console_log($_SESSION["IsLogined"]);
-            $_SESSION["UserName"] = $currentUser->Name;
-            $_SESSION["Avatar"]=$currentUser->Avatar;
-            $_SESSION["IDUser"]=$currentUser->_id;
-            $_SESSION["Email"]=$currentUser->Email;
-            $_SESSION["Birthday"]=$currentUser->Birthday;
-            $_SESSION["Address"]=$currentUser->Address;
-        }
-        require("./View/timeline-about.phtml");
+         if (!isset ($_SESSION["IsLogined"]) || $_SESSION["IsLogined"] != "true")
+        { header("Location:index.php?action=login");
+        } else {
+             if(isset($_REQUEST['_id'])) {
+                 $_id = $_REQUEST['_id'];
+                 console_log($_id);
+                 $currentUser = UserModel::findbyID($_id);
+                 $_SESSION["Profile_NumberofPosts"]= UserModel::countNumofPost($_id);
+                 $_SESSION["Profile_NumberofAnswers"]= UserModel::countNumofAns($_id);
+                 $_SESSION["Profile_Email"]= "*********";
+             } else {
+                 $email = $_SESSION['Email'];
+                 $currentUser = UserModel::FindUserByEmail($email);
+                 $_SESSION["Profile_SL"]= UserModel::countNumofPost($currentUser->_id);
+                 $_SESSION["Profile_NumberofAnswers"]= UserModel::countNumofAns($currentUser->_id);
+                 $_SESSION["Profile_Email"]=$currentUser->Email;
+             }
+             console_log($currentUser);
+             if(!empty($currentUser))
+             {
+                 //$_SESSION["IsLogined"] = True;
+                 if ($currentUser->Role == "true" || $currentUser->Role == 1) $currentUser->Role = "Admin";
+                 else $currentUser->Role = "Member";
+                 $_SESSION["Profile_isAdmin"] = $currentUser->Role;
+                 //console_log($_SESSION["Profile_IsLogined"]);
+                 $_SESSION["Profile_UserName"] = $currentUser->Name;
+                 $_SESSION["Profile_Avatar"]=$currentUser->Avatar;
+                 $_SESSION["Profile_IDUser"]=$currentUser->_id;
+                 $_SESSION["Profile_Birthday"]=$currentUser->Birthday;
+                 $_SESSION["Profile_Address"]=$currentUser->Address;
+                 $_SESSION["Profile_Phone"]=$currentUser->Phone;
+                 //$_SESSION["Profile_SL"]=count;
+             }
+             require("./View/timeline-about.phtml");
+         }
     }
     public function unauthorized_page()
     {

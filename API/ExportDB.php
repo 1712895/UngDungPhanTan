@@ -9,14 +9,14 @@ $items = $array->kitNew->items;
 
 foreach($items as $item){
     echo "<tr>";
-    echo "<td>" . $item . "</td>";
-    echo "<td>" . $item->killCount . "</td>";
+    echo "<td>" . $item->_id . "</td>";
+    echo "<td>" . $item->header . "</td>";
     echo "<td>" . $item->killedByCount . "</td>";
     echo "<td>" . $item->selected . "</td>";
     echo "<td>" . $item->unlocked . "</td>";
     echo "</tr>";
 }
-$fp = fopen('Post.json', 'w');
+/*$fp = fopen('Post.json', 'w');
 fwrite($fp,json_encode(iterator_to_array(($records))));
-fclose($fp);
+fclose($fp);*/
 ?>
