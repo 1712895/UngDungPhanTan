@@ -29,47 +29,41 @@ class PostController
             $_id = $_REQUEST['_id'];
             console_log($_id);
         }
+
         if(isset($_REQUEST['add_comment']))
         {
             UserController::authentication();
-            $comment = $_REQUEST['comment'];
-            $usercurrent = UserModel::findbyID($_SESSION["IDUser"]);
-            $notice = "Comment Sucessful !!!";
-            $fileDestination = '';
-            /*bat dau tu day*/
-            $file = $_FILES['file'];
-            $fileExt = explode('.',$file['name']);
-            $fileActualExt = strtolower(end($fileExt));
-            $allowed = array('jpg','jpeg','png','pdf');
-            if(in_array($fileActualExt,$allowed))
-            {
-                if($file['error'] === 0)
-                {
-                    if($file['size'] < 1000000)
-                    {
-                        $notice1 = "";
-                        $fileNameNew = uniqid('',true).".".$fileActualExt;
-                        $fileDestination = 'images/uploads/'.$fileNameNew;
-                        move_uploaded_file($file['tmp_name'],$fileDestination);
+            if(!empty($_SESSION["IDUser"])) {
+                $comment = $_REQUEST['comment'];
+                $usercurrent = UserModel::findbyID($_SESSION["IDUser"]);
+                $notice = "Comment Sucessful !!!";
+                $fileDestination = '';
+                /*bat dau tu day*/
+                $file = $_FILES['file'];
+                $fileExt = explode('.', $file['name']);
+                $fileActualExt = strtolower(end($fileExt));
+                $allowed = array('jpg', 'jpeg', 'png', 'pdf');
+                if (in_array($fileActualExt, $allowed)) {
+                    if ($file['error'] === 0) {
+                        if ($file['size'] < 1000000) {
+                            $notice1 = "";
+                            $fileNameNew = uniqid('', true) . "." . $fileActualExt;
+                            $fileDestination = 'images/uploads/' . $fileNameNew;
+                            move_uploaded_file($file['tmp_name'], $fileDestination);
 
+                        } else {
+                            $notice1 = "But your image is too big !!! ";
+                        }
+                    } else {
+                        $notice1 = "But There was an error uploading your picture ";
                     }
-                    else
-                    {
-                        $notice1 = "But your image is too big !!! ";
-                    }
-                }
-                else
-                {
-                    $notice1 = "But There was an error uploading your picture ";
-                }
 
-            } else
-            {
-                $notice1 = "But you cant upload your picture of this type!";
+                } else {
+                    $notice1 = "But you cant upload your picture of this type!";
+                }
+                /*ket thuc o day*/
+                PostModel::addComment($comment, $_SESSION["IDUser"], $_id, $usercurrent->Name, $usercurrent->Avatar, $fileDestination);
             }
-            /*ket thuc o day*/
-            PostModel::addComment($comment,$_SESSION["IDUser"],$_id,$usercurrent->Name,$usercurrent->Avatar,$fileDestination);
-
         }
         $data = PostModel::getDetail($_id);
         require ("./View/newsfeed-detail.phtml");

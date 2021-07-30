@@ -3,6 +3,7 @@
 
 class UserModel
 {
+    public $_id;
     public $Address;
     public $Avatar;
     public $Birthday;
@@ -15,6 +16,7 @@ class UserModel
 
     function __construct()
     {
+        $this->_id = "";
         $this->Address = "";
         $this->Avatar = "";
         $this->Birthday = date_create('now')->format('Y-m-d H:i:s');
@@ -28,9 +30,33 @@ class UserModel
     public static function findbyID($_id) {
         $db = connect();
         return  $db->User->findOne(
-            ['_id' => $_id]
+            ['_id' => new MongoDB\BSON\ObjectId("$_id")]
             );
     }
+
+
+    public static function countNumofPost($_id) {
+        $db = connect();
+        //Query
+        $result = $db->Post->find(['id_User' => new MongoDB\BSON\ObjectId("$_id")]);
+        $count = 0;
+        foreach ($result as $row) {
+            $count += 1;
+        }
+        return $count;
+    }
+
+    public static function countNumofAns($_id) {
+        $db = connect();
+        //Query
+        $result = $db->Answer->find(['IDUser' => new MongoDB\BSON\ObjectId("$_id")]);
+        $count = 0;
+        foreach ($result as $row) {
+            $count += 1;
+        }
+        return $count;
+    }
+
     public static function FindUser($email,$password)
     {
         $db = connect();
@@ -39,6 +65,7 @@ class UserModel
               'Password' =>$password]
         );
     }
+    
     public static function FindUserByEmail($email)
     {
         $db = connect();

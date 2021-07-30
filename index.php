@@ -34,7 +34,6 @@ if (isset($_REQUEST["action"]))
 
 switch ($action)
 {
-
     case "profile":
         $controller = new UserController();
         $controller->profile();
@@ -67,18 +66,21 @@ switch ($action)
         $controller = new UserController();
         $controller->logout();
         break;
-    case "profile":
+   /* case "profile":
         $controller = new UserController();
         $controller->profile();
         break;
-        /*
+        */
     case "like":
         $controller = new PostController();
         $controller->Like();
-        */
+        
     case "addReport":
         $controller = new PostController();
         $controller->addReport();
+
+        break;
+
     default:
         $controller = new PostController();
         $controller->index();
