@@ -124,6 +124,36 @@ class PostModel
             ]]]
         );
     }
+
+    public static function updateLike($IDPost)
+    {
+        $db = connect();
+        return $db->Post->updateOne(
+            ['_id'=>new MongoDB\BSON\ObjectId("$IDPost")],
+            [ '$inc' => [ 'like' => 1 ]]
+        );
+    }
+
+    public static function updateUnlike($IDPost)
+    {
+        $db = connect();
+        return $db->Post->updateOne(
+            ['_id'=>new MongoDB\BSON\ObjectId("$IDPost")],
+            [ '$inc' => [ 'like' => -1 ]]
+        );
+    }
+    public static function addReport($UserID,$IDPost,$Detail)
+    {
+        $db = connect();
+        $result = $db->Report->insertOne(
+        [
+            'IDUser'=> $UserID ,
+            'IDPost'=> $IDPost,
+            'Detail'=>$Detail
+        ]);
+        return $result;
+    }
+
 /*    public static function notice_addcomment($UserID,$IDPost)
     {
         $db=connect();

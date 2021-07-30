@@ -71,6 +71,14 @@ switch ($action)
         $controller = new UserController();
         $controller->profile();
         break;
+        /*
+    case "like":
+        $controller = new PostController();
+        $controller->Like();
+        */
+    case "addReport":
+        $controller = new PostController();
+        $controller->addReport();
     default:
         $controller = new PostController();
         $controller->index();

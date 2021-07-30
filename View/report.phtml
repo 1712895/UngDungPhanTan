@@ -9,7 +9,6 @@ require_once ('inc/header.phtml');
 ?>
 
 
-
 <!-- Header
 ================================================= -->
 
@@ -18,13 +17,14 @@ require_once ('inc/header.phtml');
 <div id="page-contents">
     <div class="container">
         <div class="row">
+
             <!-- Newsfeed Common Side Bar Left.
             ================================================= -->
             <div class="col-md-3 static">
                 <div class="profile-card">
-                    <img src="<?php if(isset($_SESSION["Avatar"])){echo $_SESSION["Avatar"];}else{echo 'images/users/avatardefault.jpg';}  ?>" alt="user" class="profile-photo" />
-                    <h5><a href="timeline.phtml" class="text-white"><?php if(isset($_SESSION["UserName"])){echo $_SESSION["UserName"];}else{echo 'Anonymous';}  ?></a></h5>
-                    <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> </a>
+                    <img src="<?php  echo $_SESSION["Avatar"]; ?>" alt="user" class="profile-photo" />
+                    <h5><a href="timeline.phtml" class="text-white"><?php  echo $_SESSION["UserName"]; ?></a></h5>
+                    <a href="#" class="text-white"><i class="ion ion-android-person-add"></i> 0 Answer </a>
                 </div><!--profile card ends-->
                 <ul class="nav-news-feed">
                     <h4 class="grey">Categories</h4>
@@ -60,88 +60,34 @@ require_once ('inc/header.phtml');
 
                 <!-- Post Create Box
                 ================================================= -->
-                <div class="create-post">
+                <div class="report">
                     <div class="">
                         <div class="">
-                            <a class=" btn btn-primary "  href="index.php?action=addPost" >+ New topic </a>
+                            <a class=" btn btn-primary "  href="index.php" >+ Back to Index </a>
 
+                            <div class="form-popup" id="myForm">
+                                <form action="" class="form-container" method="POST" enctype="multipart/form-data">
+                                    <h3> <label for="name">Reason for reporting</label></h3>
+                                    <!--<input  id="name" type="text" name="name" width="280" required/>-->
+                                    <textarea id="name" rows="5" cols="270" placeholder="Write your reason" name="header"></textarea>
+                                    <div class="flax">
+                                        <button class="btn btn-primary  " type="submit"name = "report_post" href="index.php" >Submit</button>
 
+                                    </div>
+                                </form>
+
+                            </div>
 
 
 
 
                         </div>
 
-                        <!--<div class="col-md-5 col-sm-5">
-                            <div class="tools">
-                                <ul class="publishing-tools list-inline">
-                                    <li><a href="#"><i class="ion-compose"></i></a></li>
-                                    <li><a href="#"><i class="ion-images"></i></a></li>
-
-                                </ul>
-                                <button class="btn btn-primary pull-right">Publish</button>
-                            </div>
-                        </div>-->
 
                     </div>
-                </div><!-- Post Create Box End-->
+                </div><!-- Post Report Box End-->
 
-                <!-- Post Content
-                ================================================= -->
-                <?php
-                foreach ( $dataUser as $value){
-                    ?>
-                <div class="post-content">
-                    <!--<img src="../images/post-images/1.jpg" alt="post-image" class="img-responsive post-image" />-->
-                    <h3><a href="index.php?action=detail&_id=<?php  echo ($value->_id); ?>" class="profile-link">  <?php
-                               echo $value->header;
-                            ?>  </a> </h3>
-                    <div class="post-container">
-                        <img src="<?php  echo ($value->Infor_User[0]->Avatar); ?>" alt="user" class="profile-photo-md pull-left" />
-                        <div class="post-detail">
 
-                            <div class="user-info">
-                                <h5><a href="timeline.html" class="profile-link"><?php  echo ($value->Infor_User[0]->Name); ?></a> <span class="following"><?php  echo $value->categories;  ?></span></h5>
-
-                                <p class="text-muted"><?php echo  ($value->date_created); ?></p>
-                            </div>
-
-                            <div class="reaction">
-                                <a class="heart" id ="<?php  echo ($value->_id); ?>"><i class="fa fa-heart"></i>
-                                <?php  
-                                echo $value->like;  
-                                echo '
-                                <script src="./js/like.js">                                 
-                                </script>
-                                ';                               
-                                ?></a>
-                                <a class="btn " type="button" data-toggle="dropdown"><i class="fa fa-ellipsis-v"> </i></a>
-                                <div class="dropdown-menu pull-right" >
-                                    <li><a href="index.php?action=addReport" >Report</a></li>
-                                    
-                                    <li><a href="#">Hide</a></li>
-                                </div>
-                                                         
-
-                                
-                            </div>
-                            <div class="line-divider"></div>
-                            <div class="">
-                                <?php
-                                for ($x = 0; $x < count($value->Tags); $x++) { ?>
-                                    <button class="bts default" ><?php  echo $value->Tags[$x]; ?></button>
-                                    <?php
-                                }
-                                ?>
-
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-                <?php
-                }
-                ?>
             </div>
 
             <!-- Newsfeed Common Side Bar Right
@@ -184,41 +130,11 @@ require_once ('inc/header.phtml');
                             <a href="#" class="text-green">Add friend</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
     </div>
 </div>
-<!---
-<div class="bg-modal">
-    <div class="modal-contents">
-
-        <div class="close">+</div>
-        <img src="https://richardmiddleton.me/comic-100.png" alt="">
-
-        <form action="">
-            <input class="input-report" type="text" placeholder="Name">
-            <a href="#" class="button">Submit</a>
-        </form>
-
-    </div>
-    
-</div>
-
-<div id="myModal" class="modal">
-
-  <div class="modal-content">
-    <div class="modal-header">
-      <span class="close">&times;</span>
-    </div>
-    <form action="">
-            <input type="text" placeholder="Name">
-            <a href="#" class="button">Submit</a>
-        </form>
-  </div>
-
-</div>--->
 
 <!-- Footer
 ================================================= -->
@@ -226,10 +142,6 @@ require_once ('inc/header.phtml');
 
 require_once 'inc/footer.phtml';
 
-echo '
-<script src="./js/report.js">                                 
-</script>
-';                               
 
 ?>
 

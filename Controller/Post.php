@@ -124,29 +124,42 @@ class PostController
         require("./View/newsfeed-add.phtml");
     }
 // like unlike
-    public function Like($_id)
+    public function Like()
     {
         if (isset($_POST['action'])) {
-            $post_id = $_POST['post_id'];
+            $post_id = $_POST['_id'];
             $action = $_POST['action'];
 
             switch ($action) {
                 case 'like':
-                    //thay doi luot like Mongo DB
+                    $like=PostModel::updateLike($post_id);
                     break;
                 case 'unlike':
-                    //thay doi luot like Mongo DB
+                    $unlike= PostModel::updateUnlike($post_id);
                     break;
                 default:
                     break;
-                }
-
-            // execute query to effect changes in the database ...
-            exit(0);
             }
+        }    
     }
-
-
+    public function addReport()
+    {
+            UserController::authentication();
+            $notice = "Why you report this post?";
+            $_id = '';
+            $notice = 'Comment your thinking about this post <3';
+            $notice1 = '';
+            if(isset($_REQUEST['_id'])) {
+                $_id = $_REQUEST['_id'];
+                console_log($_id);
+            }
+            if(isset($_REQUEST['report_post']))
+            {           
+            $Detail = $_REQUEST['Detail'];
+            PostModel::addReport($_SESSION["IDUser"],$_id,$Detail);
+            }
+            require("./View/report.phtml");
+    }
 }
 /*var_dump(PostModel::listAll());*/
 ?>
