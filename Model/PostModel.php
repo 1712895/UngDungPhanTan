@@ -154,7 +154,7 @@ class PostModel
         $result = $db->Report->insertOne(
         [
             'IDUser'=> $UserID ,
-            'IDPost'=> $IDPost,
+            'IDPost'=> new MongoDB\BSON\ObjectId($IDPost),
             'Detail'=>$Detail
         ]);
         return $result;
