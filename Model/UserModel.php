@@ -65,6 +65,7 @@ class UserModel
               'Password' =>$password]
         );
     }
+    
     public static function FindUserByEmail($email)
     {
         $db = connect();

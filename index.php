@@ -34,7 +34,6 @@ if (isset($_REQUEST["action"]))
 
 switch ($action)
 {
-
     case "profile":
         $controller = new UserController();
         $controller->profile();
