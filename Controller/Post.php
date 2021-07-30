@@ -5,7 +5,6 @@ class PostController
     public function index()
     {   $catName='';
         $tagName='';
-        console_log($_SESSION["IDUser"]);
         $dataUser = PostModel::AllQuestion();
         if(isset($_REQUEST['catName'])){
             $catName= $_REQUEST['catName'];
